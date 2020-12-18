@@ -11,9 +11,9 @@
     <PackageLicenseUrl></PackageLicenseUrl>
     <RepositoryType />
     <NeutralLanguage></NeutralLanguage>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/stuebersystems/enbrea.csv</RepositoryUrl>
+    <RepositoryUrl>https://github.com/stuebersystems/enbrea.ecf</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enbrea.Csv" Version="0.0.2-develop.34" />
+    <PackageReference Include="Enbrea.Csv" Version="0.1.0" />
   </ItemGroup>
 
 </Project>
