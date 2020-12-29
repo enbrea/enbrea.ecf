@@ -60,7 +60,7 @@ namespace Ecf.Enbrea.XUnit
             var csvData =
                 "A;B" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\"}]\"" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstitutionId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
+                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
 
             var sb = new StringBuilder();
 
@@ -78,7 +78,7 @@ namespace Ecf.Enbrea.XUnit
             await ecfTableWriter.WriteAsync();
 
             ecfTableWriter.SetValue("A", "Text");
-            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapSubstitution() { SubstitutionId = "6cade88a-ff84-48f9-8652-d8b7e8837034" } });
+            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapSubstitution() { SubstituteLessonId = "6cade88a-ff84-48f9-8652-d8b7e8837034" } });
 
             await ecfTableWriter.WriteAsync();
 

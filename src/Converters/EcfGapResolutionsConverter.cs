@@ -51,9 +51,9 @@ namespace Enbrea.Ecf
                                 }
                                 else if (jsonProperty1.GetString() == "Substitution")
                                 {
-                                    if (jsonElement.TryGetProperty("SubstitutionId", out var jsonProperty2))
+                                    if (jsonElement.TryGetProperty("SubstituteLessonId", out var jsonProperty2))
                                     {
-                                        gapResolutions.Add(new EcfLessonGapSubstitution() { SubstitutionId = jsonProperty2.GetString() });
+                                        gapResolutions.Add(new EcfLessonGapSubstitution() { SubstituteLessonId = jsonProperty2.GetString() });
                                     }
                                 }
 
@@ -89,7 +89,7 @@ namespace Enbrea.Ecf
                     else if (gapResolution is EcfLessonGapSubstitution lessonGapResolution)
                     {
                         jsonWriter.WriteString("_type", "Substitution");
-                        jsonWriter.WriteString("SubstitutionId", lessonGapResolution.SubstitutionId.ToString());
+                        jsonWriter.WriteString("SubstituteLessonId", lessonGapResolution.SubstituteLessonId.ToString());
                     }
                     jsonWriter.WriteEndObject();
                 }

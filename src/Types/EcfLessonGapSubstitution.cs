@@ -19,9 +19,9 @@ namespace Enbrea.Ecf
     public class EcfLessonGapSubstitution : EcfLessonGapResolution
     {
         /// <summary>
-        /// Substitution (Vertretung)
+        /// Substitution lesson (Vertretungsunterricht)
         /// </summary>
-        public string SubstitutionId { get; set; }
+        public string SubstituteLessonId { get; set; }
 
         /// <summary>
         /// Determines whether two <see cref="EcfGapResolution"> instances are equal.
@@ -30,7 +30,7 @@ namespace Enbrea.Ecf
         /// <returns>True if the specified Object is equal to the current Object; otherwise, false.</returns>
         public override bool Equals(EcfGapResolution obj)
         {
-            return base.Equals(obj) && (SubstitutionId == ((EcfLessonGapSubstitution)obj).SubstitutionId);
+            return base.Equals(obj) && (SubstituteLessonId == ((EcfLessonGapSubstitution)obj).SubstituteLessonId);
         }
     }
 }
