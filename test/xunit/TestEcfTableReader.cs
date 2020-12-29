@@ -148,7 +148,7 @@ namespace Ecf.Enbrea.XUnit
             var csvData =
                 "A;B" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\"}]\"" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstitutionId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
+                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
 
             using var csvReader = new CsvReader(csvData);
 
@@ -167,7 +167,7 @@ namespace Ecf.Enbrea.XUnit
             await ecfTableReader.ReadAsync();
             Assert.Equal("Text", ecfTableReader.GetValue<string>("A"));
             Assert.Single(ecfTableReader.GetValue<List<EcfGapResolution>>("B"));
-            Assert.Equal(new EcfLessonGapSubstitution() { SubstitutionId = "6cade88a-ff84-48f9-8652-d8b7e8837034" }, ecfTableReader.GetValue<List<EcfGapResolution>>("B")[0]);
+            Assert.Equal(new EcfLessonGapSubstitution() { SubstituteLessonId = "6cade88a-ff84-48f9-8652-d8b7e8837034" }, ecfTableReader.GetValue<List<EcfGapResolution>>("B")[0]);
         }
     }
 }
