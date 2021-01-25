@@ -48,6 +48,10 @@ namespace Enbrea.Ecf
         public const string TeacherTypes = "TeacherTypes";
         public const string VocationalFields = "VocationalFields";
 
+        // International
+        public const string Countries = "Countries";
+        public const string Regions = "Regions";
+
         // Special catalogs
         public const string EducationalPrograms = "EducationalPrograms";
 
