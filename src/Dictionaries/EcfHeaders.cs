@@ -16,7 +16,7 @@ namespace Enbrea.Ecf
     /// </summary>
     public static class EcfHeaders
     {
-        public const string AdressLines = "AdressLines";
+        public const string AddressLines = "AddressLines";
         public const string AlternativeName = "AlternativeName";
         public const string AlternativeSubjectFocusId = "AlternativeSubjectFocusId";
         public const string Birthdate = "Birthdate";
