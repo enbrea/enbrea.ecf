@@ -23,6 +23,7 @@ namespace Enbrea.Ecf
         public const string EducationalAreas = "EducationalAreas";
         public const string EventTypes = "EventTypes";
         public const string FormsOfTeaching = "FormsOfTeaching";
+        public const string Languages = "Languages";
         public const string LessonProfiles = "LessonProfiles";
         public const string LessonSubstitutionQualities = "LessonSubstitutionQualities";
         public const string LevelOfQualifications = "LevelOfQualifications";
@@ -52,6 +53,7 @@ namespace Enbrea.Ecf
         // Education
         public const string Announcements = "Announcements";
         public const string Courses = "Courses";
+        public const string Custodians = "Custodians";
         public const string Departments = "Departments";
         public const string EducationalContents = "EducationalContents";
         public const string EducationalMaterials = "EducationalMaterials";
@@ -62,6 +64,8 @@ namespace Enbrea.Ecf
         public const string SchoolClassAbsences = "SchoolClassAbsences";
         public const string SchoolClasses = "SchoolClasses";
         public const string StudentCourseAttendances = "StudentCourseAttendances";
+        public const string StudentCustodians = "StudentCustodians";
+        public const string StudentForeignLanguages = "StudentForeignLanguages";
         public const string Students = "Students";
         public const string StudentSchoolClassAttendances = "StudentSchoolClassAttendances";
         public const string StudentSubjects = "StudentSubjects";
