@@ -68,6 +68,7 @@ namespace Enbrea.Ecf
         public const string NamePrefix = "NamePrefix";
         public const string NameQualifier = "NameQualifier";
         public const string NameSuffix = "NameSuffix";
+        public const string NativeLanguage = "NativeLanguage";
         public const string NickName = "NickName";
         public const string NormalizedCode = "NormalizedCode";
         public const string Notes = "Notes";
@@ -78,7 +79,7 @@ namespace Enbrea.Ecf
         public const string ReasonId = "ReasonId";
         public const string Reasons = "Reasons";
         public const string RegionId = "RegionId";
-        public const string Relationshiptype = "Relationshiptype";
+        public const string RelationshipType = "RelationshipType";
         public const string Relevance = "Relevance";
         public const string Resolutions = "Resolutions";
         public const string RoomId = "RoomId";

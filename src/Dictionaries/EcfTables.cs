@@ -22,11 +22,12 @@ namespace Enbrea.Ecf
         public const string CourseTypes = "CourseTypes";
         public const string EducationalAreas = "EducationalAreas";
         public const string EventTypes = "EventTypes";
+        public const string ForeignLanguages = "ForeignLanguages";
         public const string FormsOfTeaching = "FormsOfTeaching";
-        public const string Languages = "Languages";
         public const string LessonProfiles = "LessonProfiles";
         public const string LessonSubstitutionQualities = "LessonSubstitutionQualities";
         public const string LevelOfQualifications = "LevelOfQualifications";
+        public const string NativeLanguages = "NativeLanguages";
         public const string RoomAbsenceReasons = "RoomAbsenceReasons";
         public const string RoomTypes = "RoomTypes";
         public const string SchoolCategories = "SchoolCategories";
