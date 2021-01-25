@@ -22,10 +22,12 @@ namespace Enbrea.Ecf
         public const string CourseTypes = "CourseTypes";
         public const string EducationalAreas = "EducationalAreas";
         public const string EventTypes = "EventTypes";
+        public const string ForeignLanguages = "ForeignLanguages";
         public const string FormsOfTeaching = "FormsOfTeaching";
         public const string LessonProfiles = "LessonProfiles";
         public const string LessonSubstitutionQualities = "LessonSubstitutionQualities";
         public const string LevelOfQualifications = "LevelOfQualifications";
+        public const string NativeLanguages = "NativeLanguages";
         public const string RoomAbsenceReasons = "RoomAbsenceReasons";
         public const string RoomTypes = "RoomTypes";
         public const string SchoolCategories = "SchoolCategories";
@@ -46,12 +48,17 @@ namespace Enbrea.Ecf
         public const string TeacherTypes = "TeacherTypes";
         public const string VocationalFields = "VocationalFields";
 
+        // International
+        public const string Countries = "Countries";
+        public const string Regions = "Regions";
+
         // Special catalogs
         public const string EducationalPrograms = "EducationalPrograms";
 
         // Education
         public const string Announcements = "Announcements";
         public const string Courses = "Courses";
+        public const string Custodians = "Custodians";
         public const string Departments = "Departments";
         public const string EducationalContents = "EducationalContents";
         public const string EducationalMaterials = "EducationalMaterials";
@@ -62,6 +69,8 @@ namespace Enbrea.Ecf
         public const string SchoolClassAbsences = "SchoolClassAbsences";
         public const string SchoolClasses = "SchoolClasses";
         public const string StudentCourseAttendances = "StudentCourseAttendances";
+        public const string StudentCustodians = "StudentCustodians";
+        public const string StudentForeignLanguages = "StudentForeignLanguages";
         public const string Students = "Students";
         public const string StudentSchoolClassAttendances = "StudentSchoolClassAttendances";
         public const string StudentSubjects = "StudentSubjects";
