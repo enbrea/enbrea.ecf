@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2020 STÜBER SYSTEMS GmbH
+﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
 /*    
  *    ENBREA ECF
  *    
- *    Copyright (C) 2020 STÜBER SYSTEMS GmbH
+ *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -68,11 +68,13 @@ namespace Enbrea.Ecf
         public const string ScheduledLessons = "ScheduledLessons";
         public const string SchoolClassAbsences = "SchoolClassAbsences";
         public const string SchoolClasses = "SchoolClasses";
+        public const string SchoolTerms = "SchoolTerms";
         public const string StudentCourseAttendances = "StudentCourseAttendances";
         public const string StudentCustodians = "StudentCustodians";
         public const string StudentForeignLanguages = "StudentForeignLanguages";
         public const string Students = "Students";
         public const string StudentSchoolClassAttendances = "StudentSchoolClassAttendances";
+        public const string StudentSchoolClassAttendanceStatus = "StudentSchoolClassAttendanceStatus";
         public const string StudentSubjects = "StudentSubjects";
         public const string SubjectLearningFields = "SubjectLearningFields";
         public const string Subjects = "Subjects";
