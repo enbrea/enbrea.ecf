@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2020 STÜBER SYSTEMS GmbH
+﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
 /*    
  *    ENBREA ECF
  *    
- *    Copyright (C) 2020 STÜBER SYSTEMS GmbH
+ *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -96,6 +96,7 @@ namespace Enbrea.Ecf
         public const string SchoolClassTypeId = "SchoolClassTypeId";
         public const string SchoolOrganisationId = "SchoolOrganisationId";
         public const string SchoolProfileId = "SchoolProfileId";
+        public const string SchoolTermId = "SchoolTermId";
         public const string SchoolTypeId = "SchoolTypeId";
         public const string ScopeOfWeek = "ScopeOfWeek";
         public const string SequenceNo = "SequenceNo";
