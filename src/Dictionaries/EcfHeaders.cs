@@ -16,6 +16,7 @@ namespace Enbrea.Ecf
     /// </summary>
     public static class EcfHeaders
     {
+        public const string AchievementTypes = "AchievementTypes";
         public const string AddressLines = "AddressLines";
         public const string AlternativeName = "AlternativeName";
         public const string AlternativeSubjectFocusId = "AlternativeSubjectFocusId";
@@ -50,6 +51,12 @@ namespace Enbrea.Ecf
         public const string FormOfTeachingId = "FormOfTeachingId";
         public const string FromLevel = "FromLevel";
         public const string Gender = "Gender";
+        public const string Grade1AchievementTypeId = "Grade1AchievementTypeId";
+        public const string Grade1ValueId = "Grade1ValueId";
+        public const string Grade2AchievementTypeId = "Grade2AchievementTypeId";
+        public const string Grade2ValueId = "Grade2ValueId";
+        public const string GradeSystemId = "GradeSystemId";
+        public const string GradeValueId = "GradeValueId";
         public const string HomePhoneNumber = "HomePhoneNumber";
         public const string Id = "Id";
         public const string InternalCode = "InternalCode";
@@ -129,6 +136,8 @@ namespace Enbrea.Ecf
         public const string ToLevel = "ToLevel";
         public const string ValidFrom = "ValidFrom";
         public const string ValidTo = "ValidTo";
+        public const string Value = "Value";
+        public const string ValueType = "ValueType";
         public const string Visibility = "Visibility";
         public const string VocationalFieldId = "VocationalFieldId";
     }
