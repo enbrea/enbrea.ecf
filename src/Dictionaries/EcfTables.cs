@@ -56,6 +56,7 @@ namespace Enbrea.Ecf
         public const string EducationalPrograms = "EducationalPrograms";
 
         // Education
+        public const string AchievementTypes = "AchievementTypes";
         public const string Announcements = "Announcements";
         public const string Courses = "Courses";
         public const string Custodians = "Custodians";
