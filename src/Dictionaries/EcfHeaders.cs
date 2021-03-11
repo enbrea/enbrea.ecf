@@ -50,6 +50,10 @@ namespace Enbrea.Ecf
         public const string FormOfTeachingId = "FormOfTeachingId";
         public const string FromLevel = "FromLevel";
         public const string Gender = "Gender";
+        public const string GradeSystemId = "GradeSystemId";
+        public const string GradeValue1Id = "GradeValue1Id";
+        public const string GradeValue2Id = "GradeValue2Id";
+        public const string GradeValueId = "GradeValueId";
         public const string HomePhoneNumber = "HomePhoneNumber";
         public const string Id = "Id";
         public const string InternalCode = "InternalCode";
@@ -129,6 +133,8 @@ namespace Enbrea.Ecf
         public const string ToLevel = "ToLevel";
         public const string ValidFrom = "ValidFrom";
         public const string ValidTo = "ValidTo";
+        public const string Value = "Value";
+        public const string ValueType = "ValueType";
         public const string Visibility = "Visibility";
         public const string VocationalFieldId = "VocationalFieldId";
     }

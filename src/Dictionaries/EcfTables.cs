@@ -62,6 +62,8 @@ namespace Enbrea.Ecf
         public const string Departments = "Departments";
         public const string EducationalContents = "EducationalContents";
         public const string EducationalMaterials = "EducationalMaterials";
+        public const string GradeSystems = "GradeSystems";
+        public const string GradeValues = "GradeValues";
         public const string LessonGaps = "LessonGaps";
         public const string RoomAbsences = "RoomAbsences";
         public const string Rooms = "Rooms";
