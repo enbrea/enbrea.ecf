@@ -106,6 +106,7 @@ namespace Enbrea.Ecf
         public const string SchoolTermId = "SchoolTermId";
         public const string SchoolTypeId = "SchoolTypeId";
         public const string ScopeOfWeek = "ScopeOfWeek";
+        public const string Section = "Section";
         public const string SequenceNo = "SequenceNo";
         public const string StartDate = "StartDate";
         public const string StartOfWeek = "StartOfWeek";
