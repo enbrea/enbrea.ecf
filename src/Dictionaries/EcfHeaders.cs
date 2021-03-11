@@ -140,6 +140,7 @@ namespace Enbrea.Ecf
         public const string ValueType = "ValueType";
         public const string Visibility = "Visibility";
         public const string VocationalFieldId = "VocationalFieldId";
+        public const string Section = "Section";
     }
 }
 
