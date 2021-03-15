@@ -51,6 +51,7 @@ namespace Enbrea.Ecf
         // International
         public const string Countries = "Countries";
         public const string Regions = "Regions";
+        public const string Nationalities = "Nationalities";
 
         // Special catalogs
         public const string EducationalPrograms = "EducationalPrograms";

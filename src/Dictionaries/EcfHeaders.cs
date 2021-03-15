@@ -75,6 +75,8 @@ namespace Enbrea.Ecf
         public const string NamePrefix = "NamePrefix";
         public const string NameQualifier = "NameQualifier";
         public const string NameSuffix = "NameSuffix";
+        public const string Nationality1 = "Nationality1";
+        public const string Nationality2 = "Nationality2";
         public const string NativeLanguage = "NativeLanguage";
         public const string NickName = "NickName";
         public const string NormalizedCode = "NormalizedCode";
