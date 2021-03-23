@@ -24,7 +24,6 @@ namespace Enbrea.Ecf
         public const string Birthname = "Birthname";
         public const string BlockNo = "BlockNo";
         public const string Capacity = "Capacity";
-        public const string ClassType ="ClassType";
         public const string Code = "Code";
         public const string Color = "Color";
         public const string CountryId = "CountryId";
@@ -57,7 +56,6 @@ namespace Enbrea.Ecf
         public const string Grade2AchievementTypeId = "Grade2AchievementTypeId";
         public const string Grade2ValueId = "Grade2ValueId";
         public const string GradeSystemId = "GradeSystemId";
-        public const string GradeType = "GradeType";
         public const string GradeValueId = "GradeValueId";
         public const string HomePhoneNumber = "HomePhoneNumber";
         public const string Id = "Id";
@@ -85,6 +83,7 @@ namespace Enbrea.Ecf
         public const string Notes = "Notes";
         public const string OfficePhoneNumber = "OfficePhoneNumber";
         public const string Order = "Order";
+        public const string Passfail = "Passfail";
         public const string PostalCode = "PostalCode";
         public const string QualityId = "QualityId";
         public const string ReasonId = "ReasonId";
