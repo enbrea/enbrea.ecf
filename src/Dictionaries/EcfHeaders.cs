@@ -98,6 +98,7 @@ namespace Enbrea.Ecf
         public const string ScheduledLessonId = "ScheduledLessonId";
         public const string SchoolCategoryId = "SchoolCategoryId";
         public const string SchoolClassCategoryId = "SchoolClassCategoryId";
+        public const string SchoolClassFederationId = "SchoolClassFederationId";
         public const string SchoolClassId = "SchoolClassId";
         public const string SchoolClassIdList = "SchoolClassIdList";
         public const string SchoolClassLevelId = "SchoolClassLevelId";
