@@ -46,6 +46,7 @@ namespace Enbrea.Ecf
         public const string EntryDate = "EntryDate";
         public const string ExchangeLessonId = "ExchangeLessonId";
         public const string ExitDate = "ExitDate";
+        public const string FederationId = "FederationId";
         public const string FirstName = "FirstName";
         public const string FlagId = "FlagId";
         public const string FormOfTeachingId = "FormOfTeachingId";
