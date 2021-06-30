@@ -22,15 +22,18 @@ namespace Enbrea.Ecf
         public const string AlternativeSubjectFocusId = "AlternativeSubjectFocusId";
         public const string Birthdate = "Birthdate";
         public const string Birthname = "Birthname";
+        public const string Block = "Block";
         public const string BlockNo = "BlockNo";
         public const string Capacity = "Capacity";
         public const string Code = "Code";
         public const string Color = "Color";
         public const string CountryId = "CountryId";
         public const string CourseCategoryId = "CourseCategoryId";
+        public const string CourseGroup = "CourseGroup";
         public const string CourseId = "CourseId";
         public const string CourseIdList = "CourseIdList";
         public const string CourseNo = "CourseNo";
+        public const string CourseRef = "CourseRef";
         public const string CourseTypeId = "CourseTypeId";
         public const string CourseUrl = "CourseUrl";
         public const string CustodianId = "CustodianId";
@@ -87,6 +90,7 @@ namespace Enbrea.Ecf
         public const string Passfail = "Passfail";
         public const string PostalCode = "PostalCode";
         public const string QualityId = "QualityId";
+        public const string ReasonDifferentiationId = "ReasonDifferentiationId";
         public const string ReasonId = "ReasonId";
         public const string Reasons = "Reasons";
         public const string RegionId = "RegionId";
@@ -139,6 +143,7 @@ namespace Enbrea.Ecf
         public const string TimeSlots = "TimeSlots";
         public const string Title = "Title";
         public const string ToLevel = "ToLevel";
+        public const string TutorId = "TutorId";
         public const string ValidFrom = "ValidFrom";
         public const string ValidTo = "ValidTo";
         public const string Value = "Value";

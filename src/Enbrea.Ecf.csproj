@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enbrea.Csv" Version="0.1.1" />
+    <PackageReference Include="Enbrea.Csv" Version="0.1.2" />
   </ItemGroup>
 
 </Project>

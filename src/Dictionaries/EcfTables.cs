@@ -22,18 +22,22 @@ namespace Enbrea.Ecf
         public const string CourseTypes = "CourseTypes";
         public const string EducationalAreas = "EducationalAreas";
         public const string EventTypes = "EventTypes";
+        public const string ExamTypes = "ExamTypes";
         public const string ForeignLanguages = "ForeignLanguages";
         public const string FormsOfTeaching = "FormsOfTeaching";
         public const string LessonProfiles = "LessonProfiles";
         public const string LessonSubstitutionQualities = "LessonSubstitutionQualities";
         public const string LevelOfQualifications = "LevelOfQualifications";
         public const string NativeLanguages = "NativeLanguages";
+        public const string ResourceCategories = "ResourceCategories";
+        public const string ResourceFlags = "ResourceFlags";
         public const string RoomAbsenceReasons = "RoomAbsenceReasons";
         public const string RoomTypes = "RoomTypes";
         public const string SchoolCategories = "SchoolCategories";
         public const string SchoolClassAbsenceReasons = "SchoolClassAbsenceReasons";
         public const string SchoolClassFlags = "SchoolClassFlags";
         public const string SchoolClassLevels = "SchoolClassLevels";
+        public const string SchoolClassProfiles = "SchoolClassProfiles";
         public const string SchoolClassProfils = "SchoolClassProfils";
         public const string SchoolClassTypes = "SchoolClassTypes";
         public const string SchoolOrganisations = "SchoolOrganisations";
@@ -44,8 +48,13 @@ namespace Enbrea.Ecf
         public const string SubjectGroups = "SubjectGroups";
         public const string SubjectLevels = "SubjectLevels";
         public const string SubjectTypes = "SubjectTypes";
+        public const string TeacherAbsenceReasonDifferentiations = "TeacherAbsenceReasonDifferentiations";
         public const string TeacherAbsenceReasons = "TeacherAbsenceReasons";
         public const string TeacherTypes = "TeacherTypes";
+        public const string TimeAccountEntryReasons = "TimeAccountEntryReasons";
+        public const string TimeAccountEntryReportings = "TimeAccountEntryReportings";
+        public const string TimeAccountEntryTypes = "TimeAccountEntryTypes";
+        public const string VacationTypes = "VacationTypes";
         public const string VocationalFields = "VocationalFields";
 
         // International
