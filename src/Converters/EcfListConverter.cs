@@ -22,7 +22,14 @@ namespace Enbrea.Ecf
     {
         public virtual object FromString(string value)
         {
-            return JsonSerializer.Deserialize<List<T>>(value);
+            if (string.IsNullOrEmpty(value))
+            {
+                return new List<T>();
+            }
+            else 
+            {
+                return JsonSerializer.Deserialize<List<T>>(value);
+            }
         }
 
         public string ToString(object value)

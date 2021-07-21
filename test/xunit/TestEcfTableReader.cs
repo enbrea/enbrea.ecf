@@ -92,7 +92,8 @@ namespace Ecf.Enbrea.XUnit
             var csvData =
                 "A;B;C" + Environment.NewLine +
                 "11;c1;\"[\"\"13\"\",\"\"14\"\",\"\"15\"\"]\"" + Environment.NewLine +
-                "22;c2;\"[\"\"23\"\",\"\"24\"\",\"\"25\"\"]\"";
+                "22;c2;\"[\"\"23\"\",\"\"24\"\",\"\"25\"\"]\"" + Environment.NewLine +
+                "33;c3;";
 
             using var csvReader = new CsvReader(csvData);
 
@@ -112,6 +113,11 @@ namespace Ecf.Enbrea.XUnit
             Assert.Equal("22", ecfTableReader.GetValue<string>("A"));
             Assert.Equal("c2", ecfTableReader.GetValue<string>("B"));
             Assert.Equal(new List<string>() { "23", "24", "25" }, ecfTableReader.GetValue<List<string>>("C"));
+
+            await ecfTableReader.ReadAsync();
+            Assert.Equal("33", ecfTableReader.GetValue<string>("A"));
+            Assert.Equal("c3", ecfTableReader.GetValue<string>("B"));
+            Assert.Equal(new List<string>(), ecfTableReader.GetValue<List<string>>("C"));
         }
 
         [Fact]
