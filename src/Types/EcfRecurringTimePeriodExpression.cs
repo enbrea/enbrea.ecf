@@ -9,6 +9,8 @@
  */
 #endregion
 
+using System;
+
 namespace Enbrea.Ecf
 {
     /// <summary>
@@ -23,11 +25,11 @@ namespace Enbrea.Ecf
         /// <summary>
         /// Valid from (Gültig von)
         /// </summary>
-        public Date? ValidFrom { get; set; }
+        public DateTimeOffset? ValidFrom { get; set; }
 
         /// <summary>
         /// Valid to (Gültig bis)
         /// </summary>
-        public Date? ValidTo { get; set; }
+        public DateTimeOffset? ValidTo { get; set; }
     }
 }

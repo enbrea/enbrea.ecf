@@ -25,11 +25,6 @@ namespace Enbrea.Ecf
     /// </summary>
     public class EcfTemporalExpressionsConverter : ICsvConverter
     {
-        private readonly string[] _dateFormats =
-        {
-            "yyyy-MM-dd"
-        };
-
         private readonly string[] _dateTimeOffsetFormats =
         {
             "yyyy-MM-dd'T'HH:mm:ss.FFFK",
@@ -92,11 +87,11 @@ namespace Enbrea.Ecf
                                     }
                                     if (jsonElement.TryGetProperty("ValidFrom", out var jsonProperty5))
                                     {
-                                        dailyExpression.ValidFrom = Date.ParseExact(jsonProperty5.GetString(), _dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                        dailyExpression.ValidFrom = DateTimeOffset.ParseExact(jsonProperty5.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                                     }
                                     if (jsonElement.TryGetProperty("ValidTo", out var jsonProperty6))
                                     {
-                                        dailyExpression.ValidTo = Date.ParseExact(jsonProperty6.GetString(), _dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                        dailyExpression.ValidTo = DateTimeOffset.ParseExact(jsonProperty6.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                                     }
                                     if (jsonElement.TryGetProperty("DaysInterval", out var jsonProperty7))
                                     {
@@ -123,11 +118,11 @@ namespace Enbrea.Ecf
                                     }
                                     if (jsonElement.TryGetProperty("ValidFrom", out var jsonProperty5))
                                     {
-                                        weeklyExpression.ValidFrom = Date.ParseExact(jsonProperty5.GetString(), _dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                        weeklyExpression.ValidFrom = DateTimeOffset.ParseExact(jsonProperty5.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                                     }
                                     if (jsonElement.TryGetProperty("ValidTo", out var jsonProperty6))
                                     {
-                                        weeklyExpression.ValidTo = Date.ParseExact(jsonProperty6.GetString(), _dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                        weeklyExpression.ValidTo = DateTimeOffset.ParseExact(jsonProperty6.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                                     }
                                     if (jsonElement.TryGetProperty("DaysOfWeek", out var jsonProperty7))
                                     {
@@ -178,8 +173,8 @@ namespace Enbrea.Ecf
                         jsonWriter.WriteString("StartTimepoint", dailyExpression.StartTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                         jsonWriter.WriteString("EndTimepoint", dailyExpression.EndTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                         jsonWriter.WriteNumber("DaysInterval", dailyExpression.DaysInterval);
-                        if (dailyExpression.ValidFrom != null) jsonWriter.WriteString("ValidFrom", dailyExpression.ValidFrom?.ToString(_dateFormats[0], CultureInfo.InvariantCulture));
-                        if (dailyExpression.ValidTo != null) jsonWriter.WriteString("ValidTo", dailyExpression.ValidTo?.ToString(_dateFormats[0], CultureInfo.InvariantCulture));
+                        if (dailyExpression.ValidFrom != null) jsonWriter.WriteString("ValidFrom", dailyExpression.ValidFrom?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                        if (dailyExpression.ValidTo != null) jsonWriter.WriteString("ValidTo", dailyExpression.ValidTo?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                     }
                     else if (temporalExpression is EcfWeeklyTimePeriodExpression weeklyExpression)
                     {
@@ -189,8 +184,8 @@ namespace Enbrea.Ecf
                         jsonWriter.WriteString("EndTimepoint", weeklyExpression.EndTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                         jsonWriter.WriteString("DaysOfWeek", weeklyExpression.DaysOfWeek.ToString());
                         jsonWriter.WriteNumber("WeeksInterval", weeklyExpression.WeeksInterval);
-                        if (weeklyExpression.ValidFrom != null) jsonWriter.WriteString("ValidFrom", weeklyExpression.ValidFrom?.ToString(_dateFormats[0], CultureInfo.InvariantCulture));
-                        if (weeklyExpression.ValidTo != null) jsonWriter.WriteString("ValidTo", weeklyExpression.ValidTo?.ToString(_dateFormats[0], CultureInfo.InvariantCulture));
+                        if (weeklyExpression.ValidFrom != null) jsonWriter.WriteString("ValidFrom", weeklyExpression.ValidFrom?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                        if (weeklyExpression.ValidTo != null) jsonWriter.WriteString("ValidTo", weeklyExpression.ValidTo?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                     }
                     jsonWriter.WriteEndObject();
                 }
