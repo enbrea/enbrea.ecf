@@ -49,6 +49,7 @@ namespace Enbrea.Ecf
         public const string EntryDate = "EntryDate";
         public const string ExchangeLessonId = "ExchangeLessonId";
         public const string ExitDate = "ExitDate";
+        public const string Factor = "Factor";
         public const string FederationId = "FederationId";
         public const string FirstName = "FirstName";
         public const string FlagId = "FlagId";
@@ -87,6 +88,7 @@ namespace Enbrea.Ecf
         public const string Notes = "Notes";
         public const string OfficePhoneNumber = "OfficePhoneNumber";
         public const string Order = "Order";
+        public const string Orphan = "Orphan";
         public const string Passfail = "Passfail";
         public const string PostalCode = "PostalCode";
         public const string QualityId = "QualityId";
