@@ -44,6 +44,7 @@ namespace Enbrea.Ecf
         public const string DepartmentId = "DepartmentId";
         public const string DepartmentIdList = "DepartmentIdList";
         public const string Description = "Description";
+        public const string DialingCode = "DialingCode";
         public const string Duration = "Duration";
         public const string EducationalContentId = "EducationalContentId";
         public const string Email = "Email";
@@ -55,6 +56,7 @@ namespace Enbrea.Ecf
         public const string ExchangeLessonId = "ExchangeLessonId";
         public const string ExitDate = "ExitDate";
         public const string Factor = "Factor";
+        public const string FamilyId = "FamilyId";
         public const string FamilyNo = "FamilyNo";
         public const string FederationId = "FederationId";
         public const string FirstLanguageId = "FirstLanguageId";
@@ -72,6 +74,7 @@ namespace Enbrea.Ecf
         public const string HomePhoneNumber = "HomePhoneNumber";
         public const string Id = "Id";
         public const string InternalCode = "InternalCode";
+        public const string ISOCode = "ISOCode";
         public const string Label = "Label";
         public const string LanguageId = "LanguageId";
         public const string LastName = "LastName";
@@ -101,6 +104,7 @@ namespace Enbrea.Ecf
         public const string OfficePhoneNumber = "OfficePhoneNumber";
         public const string Order = "Order";
         public const string Orphan = "Orphan";
+        public const string ParentId = "ParentId";
         public const string Passfail = "Passfail";
         public const string PlaceOfBirth = "PlaceOfBirth";
         public const string PostalCode = "PostalCode";
@@ -109,6 +113,8 @@ namespace Enbrea.Ecf
         public const string ReasonId = "ReasonId";
         public const string Reasons = "Reasons";
         public const string RegionId = "RegionId";
+        public const string Regions = "ISOCode";
+        public const string RegionType = "RegionType";
         public const string RelationshipType = "RelationshipType";
         public const string Relevance = "Relevance";
         public const string ReligionId = "ReligionId";
