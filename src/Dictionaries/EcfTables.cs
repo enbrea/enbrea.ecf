@@ -28,7 +28,8 @@ namespace Enbrea.Ecf
         public const string LessonProfiles = "LessonProfiles";
         public const string LessonSubstitutionQualities = "LessonSubstitutionQualities";
         public const string LevelOfQualifications = "LevelOfQualifications";
-        public const string NativeLanguages = "NativeLanguages";
+        public const string MaritalStatuses = "MaritalStatuses";
+        public const string Relgions = "Relgions";
         public const string ResourceCategories = "ResourceCategories";
         public const string ResourceFlags = "ResourceFlags";
         public const string RoomAbsenceReasons = "RoomAbsenceReasons";
@@ -59,6 +60,7 @@ namespace Enbrea.Ecf
 
         // International
         public const string Countries = "Countries";
+        public const string Languages = "Languages";
         public const string Nationalities = "Nationalities";
         public const string Regions = "Regions";
 
