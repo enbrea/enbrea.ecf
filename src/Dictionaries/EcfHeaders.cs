@@ -59,7 +59,6 @@ namespace Enbrea.Ecf
         public const string FamilyId = "FamilyId";
         public const string FamilyNo = "FamilyNo";
         public const string FederationId = "FederationId";
-        public const string FirstLanguageId = "FirstLanguageId";
         public const string FirstName = "FirstName";
         public const string FlagId = "FlagId";
         public const string FormOfTeachingId = "FormOfTeachingId";
@@ -82,7 +81,6 @@ namespace Enbrea.Ecf
         public const string LessonId = "LessonId";
         public const string LevelOfQualificationId = "LevelOfQualificationId";
         public const string Locality = "Locality";
-        public const string MaritalStatus = "MaritalStatus";
         public const string MaritalStatusId = "MaritalStatusId";
         public const string MiddleName = "MiddleName";
         public const string MobileNumber = "MobileNumber";
@@ -92,12 +90,10 @@ namespace Enbrea.Ecf
         public const string NamePrefix = "NamePrefix";
         public const string NameQualifier = "NameQualifier";
         public const string NameSuffix = "NameSuffix";
-        public const string Nationality1 = "Nationality1";
         public const string Nationality1Id = "Nationality1Id";
-        public const string Nationality2 = "Nationality2";
         public const string Nationality2Id = "Nationality2Id";
         public const string Nationality3Id = "Nationality3Id";
-        public const string NativeLanguage = "NativeLanguage";
+        public const string NativeLanguageId = "NativeLanguageId";
         public const string NickName = "NickName";
         public const string NormalizedCode = "NormalizedCode";
         public const string Notes = "Notes";
