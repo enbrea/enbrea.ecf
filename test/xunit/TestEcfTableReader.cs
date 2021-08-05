@@ -92,7 +92,8 @@ namespace Ecf.Enbrea.XUnit
             var csvData =
                 "A;B;C" + Environment.NewLine +
                 "11;c1;\"[\"\"13\"\",\"\"14\"\",\"\"15\"\"]\"" + Environment.NewLine +
-                "22;c2;\"[\"\"23\"\",\"\"24\"\",\"\"25\"\"]\"";
+                "22;c2;\"[\"\"23\"\",\"\"24\"\",\"\"25\"\"]\"" + Environment.NewLine +
+                "33;c3;";
 
             using var csvReader = new CsvReader(csvData);
 
@@ -112,6 +113,11 @@ namespace Ecf.Enbrea.XUnit
             Assert.Equal("22", ecfTableReader.GetValue<string>("A"));
             Assert.Equal("c2", ecfTableReader.GetValue<string>("B"));
             Assert.Equal(new List<string>() { "23", "24", "25" }, ecfTableReader.GetValue<List<string>>("C"));
+
+            await ecfTableReader.ReadAsync();
+            Assert.Equal("33", ecfTableReader.GetValue<string>("A"));
+            Assert.Equal("c3", ecfTableReader.GetValue<string>("B"));
+            Assert.Equal(new List<string>(), ecfTableReader.GetValue<List<string>>("C"));
         }
 
         [Fact]
@@ -168,6 +174,32 @@ namespace Ecf.Enbrea.XUnit
             Assert.Equal("Text", ecfTableReader.GetValue<string>("A"));
             Assert.Single(ecfTableReader.GetValue<List<EcfGapResolution>>("B"));
             Assert.Equal(new EcfLessonGapSubstitution() { SubstituteLessonId = "6cade88a-ff84-48f9-8652-d8b7e8837034" }, ecfTableReader.GetValue<List<EcfGapResolution>>("B")[0]);
+        }
+
+        [Fact]
+        public async Task TestTemporalExpressions()
+        {
+            var csvData =
+                "A;B" + Environment.NewLine +
+                "Text;\"[{\"\"_type\"\":\"\"OneTime\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"2020-08-17T07:45:00+02:00\"\",\"\"EndTimepoint\"\":\"\"2020-08-17T09:15:00+02:00\"\"}]\"" + Environment.NewLine +
+                "Text;\"[{\"\"_type\"\":\"\"Weekly\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"1899-12-30T13:45:00+01:00\"\",\"\"EndTimepoint\"\":\"\"1899-12-30T15:15:00+01:00\"\",\"\"DaysOfWeek\"\":\"\"Friday\"\",\"\"WeeksInterval\"\":1,\"\"ValidFrom\"\":\"\"2020-08-17\"\",\"\"ValidTo\"\":\"\"2021-01-31\"\"}]\"";
+
+            using var csvReader = new CsvReader(csvData);
+
+            var ecfTableReader = new EcfTableReader(csvReader);
+
+            Assert.NotNull(ecfTableReader);
+
+            await ecfTableReader.ReadHeadersAsync();
+            Assert.Equal(2, ecfTableReader.Headers.Count);
+
+            await ecfTableReader.ReadAsync();
+            Assert.Equal("Text", ecfTableReader.GetValue<string>("A"));
+            Assert.Single(ecfTableReader.GetValue<List<EcfTemporalExpression>>("B"));
+
+            await ecfTableReader.ReadAsync();
+            Assert.Equal("Text", ecfTableReader.GetValue<string>("A"));
+            Assert.Single(ecfTableReader.GetValue<List<EcfTemporalExpression>>("B"));
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Authors>STÜBER SYSTEMS GmbH</Authors>
     <Company>STÜBER SYSTEMS GmbH</Company>
@@ -9,11 +9,14 @@
     <Product>ENBREA ECF</Product>
     <Description>Helper classes for reading and writing ECF files</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
-    <RepositoryType />
+    <RepositoryType>git</RepositoryType>
     <NeutralLanguage></NeutralLanguage>
     <Version>0.1.1</Version>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/stuebersystems/enbrea.ecf</RepositoryUrl>
+    <PackageTags>enbrea;ecf;reader;writer</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,10 +24,14 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enbrea.Csv" Version="0.1.2" />
+    <PackageReference Include="Enbrea.Csv" Version="0.1.3-develop.8" />
   </ItemGroup>
 
 </Project>

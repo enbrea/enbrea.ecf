@@ -25,11 +25,6 @@ namespace Enbrea.Ecf
     /// </summary>
     public class EcfTemporalExpressionsConverter : ICsvConverter
     {
-        private readonly string[] _dateFormats =
-        {
-            "yyyy-MM-dd"
-        };
-
         private readonly string[] _dateTimeOffsetFormats =
         {
             "yyyy-MM-dd'T'HH:mm:ss.FFFK",
@@ -61,7 +56,7 @@ namespace Enbrea.Ecf
 
                                     if (jsonElement.TryGetProperty("Operation", out var jsonProperty2))
                                     {
-                                        oneTimeExpression.Operation = (EcfTemporalExpressionOperation)Enum.Parse(typeof(EcfTemporalExpressionOperation), jsonProperty2.GetString(), true);
+                                        oneTimeExpression.Operation = ParseOperation(jsonProperty2.GetString());
                                     }
                                     if (jsonElement.TryGetProperty("StartTimepoint", out var jsonProperty3))
                                     {
@@ -74,13 +69,44 @@ namespace Enbrea.Ecf
                                     
                                     temporalExpressions.Add(oneTimeExpression);
                                 }
+                                else if (jsonProperty1.GetString() == "Daily")
+                                {
+                                    var dailyExpression = new EcfDailyTimePeriodExpression();
+
+                                    if (jsonElement.TryGetProperty("Operation", out var jsonProperty2))
+                                    {
+                                        dailyExpression.Operation = ParseOperation(jsonProperty2.GetString());
+                                    }
+                                    if (jsonElement.TryGetProperty("StartTimepoint", out var jsonProperty3))
+                                    {
+                                        dailyExpression.StartTimepoint = DateTimeOffset.ParseExact(jsonProperty3.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                    }
+                                    if (jsonElement.TryGetProperty("EndTimepoint", out var jsonProperty4))
+                                    {
+                                        dailyExpression.EndTimepoint = DateTimeOffset.ParseExact(jsonProperty4.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                    }
+                                    if (jsonElement.TryGetProperty("ValidFrom", out var jsonProperty5))
+                                    {
+                                        dailyExpression.ValidFrom = DateTimeOffset.ParseExact(jsonProperty5.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                    }
+                                    if (jsonElement.TryGetProperty("ValidTo", out var jsonProperty6))
+                                    {
+                                        dailyExpression.ValidTo = DateTimeOffset.ParseExact(jsonProperty6.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                    }
+                                    if (jsonElement.TryGetProperty("DaysInterval", out var jsonProperty7))
+                                    {
+                                        dailyExpression.DaysInterval = jsonProperty7.GetUInt32();
+                                    }
+
+                                    temporalExpressions.Add(dailyExpression);
+                                }
                                 else if (jsonProperty1.GetString() == "Weekly")
                                 {
                                     var weeklyExpression = new EcfWeeklyTimePeriodExpression();
 
                                     if (jsonElement.TryGetProperty("Operation", out var jsonProperty2))
                                     {
-                                        weeklyExpression.Operation = (EcfTemporalExpressionOperation)Enum.Parse(typeof(EcfTemporalExpressionOperation), jsonProperty2.GetString(), true);
+                                        weeklyExpression.Operation = ParseOperation(jsonProperty2.GetString());
                                     }
                                     if (jsonElement.TryGetProperty("StartTimepoint", out var jsonProperty3))
                                     {
@@ -92,11 +118,11 @@ namespace Enbrea.Ecf
                                     }
                                     if (jsonElement.TryGetProperty("ValidFrom", out var jsonProperty5))
                                     {
-                                        weeklyExpression.ValidFrom = Date.ParseExact(jsonProperty5.GetString(), _dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                        weeklyExpression.ValidFrom = DateTimeOffset.ParseExact(jsonProperty5.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                                     }
                                     if (jsonElement.TryGetProperty("ValidTo", out var jsonProperty6))
                                     {
-                                        weeklyExpression.ValidTo = Date.ParseExact(jsonProperty6.GetString(), _dateFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
+                                        weeklyExpression.ValidTo = DateTimeOffset.ParseExact(jsonProperty6.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                                     }
                                     if (jsonElement.TryGetProperty("DaysOfWeek", out var jsonProperty7))
                                     {
@@ -104,7 +130,7 @@ namespace Enbrea.Ecf
                                     }
                                     if (jsonElement.TryGetProperty("WeeksInterval", out var jsonProperty8))
                                     {
-                                        weeklyExpression.WeeksInterval = uint.Parse(jsonProperty8.GetString());
+                                        weeklyExpression.WeeksInterval = jsonProperty8.GetUInt32();
                                     }
 
                                     temporalExpressions.Add(weeklyExpression);
@@ -140,6 +166,16 @@ namespace Enbrea.Ecf
                         jsonWriter.WriteString("StartTimepoint", oneTimeExpression.StartTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                         jsonWriter.WriteString("EndTimepoint", oneTimeExpression.EndTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                     }
+                    else if (temporalExpression is EcfDailyTimePeriodExpression dailyExpression)
+                    {
+                        jsonWriter.WriteString("_type", "Daily");
+                        jsonWriter.WriteString("Operation", dailyExpression.Operation.ToString());
+                        jsonWriter.WriteString("StartTimepoint", dailyExpression.StartTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                        jsonWriter.WriteString("EndTimepoint", dailyExpression.EndTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                        jsonWriter.WriteNumber("DaysInterval", dailyExpression.DaysInterval);
+                        if (dailyExpression.ValidFrom != null) jsonWriter.WriteString("ValidFrom", dailyExpression.ValidFrom?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                        if (dailyExpression.ValidTo != null) jsonWriter.WriteString("ValidTo", dailyExpression.ValidTo?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                    }
                     else if (temporalExpression is EcfWeeklyTimePeriodExpression weeklyExpression)
                     {
                         jsonWriter.WriteString("_type", "Weekly");
@@ -148,8 +184,8 @@ namespace Enbrea.Ecf
                         jsonWriter.WriteString("EndTimepoint", weeklyExpression.EndTimepoint.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                         jsonWriter.WriteString("DaysOfWeek", weeklyExpression.DaysOfWeek.ToString());
                         jsonWriter.WriteNumber("WeeksInterval", weeklyExpression.WeeksInterval);
-                        if (weeklyExpression.ValidFrom != null) jsonWriter.WriteString("ValidFrom", weeklyExpression.ValidFrom?.ToString(_dateFormats[0], CultureInfo.InvariantCulture));
-                        if (weeklyExpression.ValidTo != null) jsonWriter.WriteString("ValidTo", weeklyExpression.ValidTo?.ToString(_dateFormats[0], CultureInfo.InvariantCulture));
+                        if (weeklyExpression.ValidFrom != null) jsonWriter.WriteString("ValidFrom", weeklyExpression.ValidFrom?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                        if (weeklyExpression.ValidTo != null) jsonWriter.WriteString("ValidTo", weeklyExpression.ValidTo?.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                     }
                     jsonWriter.WriteEndObject();
                 }
@@ -159,6 +195,19 @@ namespace Enbrea.Ecf
             jsonWriter.Flush();
 
             return Encoding.UTF8.GetString(jsonStream.ToArray());
+        }
+
+        internal EcfTemporalExpressionOperation ParseOperation(string value)
+        {
+            // Check for legacy value "Add" (can be removed later)
+            if (string.Equals(value, "Add", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return EcfTemporalExpressionOperation.Include;
+            }
+            else
+            {
+                return (EcfTemporalExpressionOperation)Enum.Parse(typeof(EcfTemporalExpressionOperation), value, true);
+            }
         }
     }
 }
