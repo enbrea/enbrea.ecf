@@ -26,7 +26,9 @@ namespace Enbrea.Ecf
         public const string BlockNo = "BlockNo";
         public const string Capacity = "Capacity";
         public const string Code = "Code";
+        public const string CodePart = "CodePart";
         public const string Color = "Color";
+        public const string ContactPriority = "ContactPriority";
         public const string CountryId = "CountryId";
         public const string CourseCategoryId = "CourseCategoryId";
         public const string CourseGroup = "CourseGroup";
@@ -37,6 +39,7 @@ namespace Enbrea.Ecf
         public const string CourseTypeId = "CourseTypeId";
         public const string CourseUrl = "CourseUrl";
         public const string CustodianId = "CustodianId";
+        public const string CustodianNotification = "CustodianNotification";
         public const string DepartmentId = "DepartmentId";
         public const string DepartmentIdList = "DepartmentIdList";
         public const string Description = "Description";
@@ -50,6 +53,7 @@ namespace Enbrea.Ecf
         public const string ExchangeLessonId = "ExchangeLessonId";
         public const string ExitDate = "ExitDate";
         public const string FederationId = "FederationId";
+        public const string FirstEntryDate = "FirstEntryDate";
         public const string FirstName = "FirstName";
         public const string FlagId = "FlagId";
         public const string FormOfTeachingId = "FormOfTeachingId";
@@ -59,8 +63,9 @@ namespace Enbrea.Ecf
         public const string Grade1ValueId = "Grade1ValueId";
         public const string Grade2AchievementTypeId = "Grade2AchievementTypeId";
         public const string Grade2ValueId = "Grade2ValueId";
-        public const string GradeSystemId = "GradeSystemId";
+        public const string GradeSystemId = "GradeSystemId";        
         public const string GradeValueId = "GradeValueId";
+        public const string HealthInsuranceProvider = "HealthInsuranceProvider";
         public const string HomePhoneNumber = "HomePhoneNumber";
         public const string Id = "Id";
         public const string InternalCode = "InternalCode";
@@ -96,6 +101,7 @@ namespace Enbrea.Ecf
         public const string RegionId = "RegionId";
         public const string RelationshipType = "RelationshipType";
         public const string Relevance = "Relevance";
+        public const string ReligionId = "ReligionId";
         public const string Resolutions = "Resolutions";
         public const string RoomId = "RoomId";
         public const string RoomIdList = "RoomIdList";
@@ -109,6 +115,7 @@ namespace Enbrea.Ecf
         public const string SchoolClassNo = "SchoolClassNo";
         public const string SchoolClassProfileId = "SchoolClassProfileId";
         public const string SchoolClassTypeId = "SchoolClassTypeId";
+        public const string SchoolClassYear = "SchoolClassYear";
         public const string SchoolOrganisationId = "SchoolOrganisationId";
         public const string SchoolProfileId = "SchoolProfileId";
         public const string SchoolTermId = "SchoolTermId";

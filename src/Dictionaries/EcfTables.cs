@@ -25,6 +25,7 @@ namespace Enbrea.Ecf
         public const string ExamTypes = "ExamTypes";
         public const string ForeignLanguages = "ForeignLanguages";
         public const string FormsOfTeaching = "FormsOfTeaching";
+        public const string HealthInsuranceProvider = "HealthInsuranceProvider";
         public const string LessonProfiles = "LessonProfiles";
         public const string LessonSubstitutionQualities = "LessonSubstitutionQualities";
         public const string LevelOfQualifications = "LevelOfQualifications";
