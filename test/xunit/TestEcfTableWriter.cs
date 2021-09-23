@@ -126,7 +126,7 @@ namespace Ecf.Enbrea.XUnit
             var csvData =
                 "A;B" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"OneTime\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"2020-08-17T07:45:00+02:00\"\",\"\"EndTimepoint\"\":\"\"2020-08-17T09:15:00+02:00\"\"}]\"" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Weekly\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"1899-12-30T13:45:00+01:00\"\",\"\"EndTimepoint\"\":\"\"1899-12-30T15:15:00+01:00\"\",\"\"DaysOfWeek\"\":\"\"Friday\"\",\"\"WeeksInterval\"\":1,\"\"ValidFrom\"\":\"\"2020-08-17\"\",\"\"ValidTo\"\":\"\"2021-01-31\"\"}]\"";
+                "Text;\"[{\"\"_type\"\":\"\"Weekly\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"1899-12-30T13:45:00+01:00\"\",\"\"EndTimepoint\"\":\"\"1899-12-30T15:15:00+01:00\"\",\"\"DaysOfWeek\"\":\"\"Friday\"\",\"\"WeeksInterval\"\":1,\"\"ValidFrom\"\":\"\"2020-08-17T00:00:00+01:00\"\",\"\"ValidTo\"\":\"\"2021-01-31T00:00:00+01:00\"\"}]\"";
 
             var sb = new StringBuilder();
 
@@ -154,8 +154,8 @@ namespace Ecf.Enbrea.XUnit
                     EndTimepoint = new DateTimeOffset(1899, 12, 30, 15, 15, 0, new TimeSpan(1, 0, 0)),
                     DaysOfWeek = EcfDayOfWeekSet.Friday,
                     WeeksInterval = 1,
-                    ValidFrom = new Date(2020, 8, 17),
-                    ValidTo = new Date(2021, 1, 31)
+                    ValidFrom = new DateTimeOffset(2020, 8, 17, 0, 0, 0, new TimeSpan(1, 0, 0)),
+                    ValidTo = new DateTimeOffset(2021, 1, 31, 0, 0, 0, new TimeSpan(1, 0, 0)),
                 }});
 
             await ecfTableWriter.WriteAsync();

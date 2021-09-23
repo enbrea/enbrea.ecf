@@ -40,26 +40,26 @@ namespace Enbrea.Ecf
         /// <param name="month">The month (1 through 12).</param>
         /// <param name="day">The day (1 through the number of days in month).</param>
         public Date(int year, int month, int day)
-		{
-			_value = new DateTime(year, month, day);
-		}
+        {
+            _value = new DateTime(year, month, day);
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Date"/> class.
         /// </summary>
         /// <param name="dateTime">A DateTime value. Only the date part is taken.</param>
         public Date(DateTime dateTime)
-		{
-			_value = dateTime.Date;
-		}
+        {
+            _value = dateTime.Date;
+        }
 
         /// <summary>
         /// Private constructor for the serializer.
         /// </summary>
         private Date(SerializationInfo info, StreamingContext context)
-		{
-			_value = new Date(new DateTime(info.GetInt64(TicksField)));
-		}
+        {
+            _value = new DateTime(info.GetInt64(TicksField));
+        }
 
         /// <summary>
         /// Gets the current date.
@@ -69,6 +69,17 @@ namespace Enbrea.Ecf
             get
             {
                 return new Date(DateTime.Today);
+            }
+        }
+
+        /// <summary>
+        /// Explicit type conversion to <see cref="DateTime"/>
+        /// </summary>
+        public DateTime DateTime
+        {
+            get
+            {
+                return _value;
             }
         }
 
@@ -185,15 +196,6 @@ namespace Enbrea.Ecf
         public static explicit operator Date(DateTime dateTime)
         {
             return new Date(dateTime);
-        }
-
-        /// <summary>
-        /// Implicit type conversion to <see cref="DateTime"/>
-        /// </summary>
-        /// <param name="date">A <see cref="Date"/> instance</param>
-        public static implicit operator DateTime(Date date)
-        {
-            return date._value;
         }
 
         /// <summary>
