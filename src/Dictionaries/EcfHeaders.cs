@@ -120,6 +120,7 @@ namespace Enbrea.Ecf
         public const string Relevance = "Relevance";
         public const string ReligionId = "ReligionId";
         public const string Resolutions = "Resolutions";
+        public const string ResolutionStatus = "ResolutionStatus";
         public const string RoomId = "RoomId";
         public const string RoomIdList = "RoomIdList";
         public const string Salutation = "Salutation";
