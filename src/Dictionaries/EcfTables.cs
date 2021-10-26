@@ -16,6 +16,9 @@ namespace Enbrea.Ecf
     /// </summary>
     public static class EcfTables
     {
+        // Dictionaries
+        public const string Global = "Global";
+
         // Catalogs
         public const string CourseCategories = "CourseCategories";
         public const string CourseFlags = "CourseFlags";
