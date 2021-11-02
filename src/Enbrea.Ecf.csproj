@@ -31,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enbrea.Csv" Version="0.2.1" />
+    <PackageReference Include="Enbrea.Csv" Version="0.3.0" />
   </ItemGroup>
 
 </Project>
