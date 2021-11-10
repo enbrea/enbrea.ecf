@@ -16,8 +16,8 @@ namespace Enbrea.Ecf
     /// </summary>
     public static class EcfKeys
     {
-        public const string ScheduleEndDate = "ScheduleEndDate";
-        public const string ScheduleStartDate = "ScheduleStartDate";
+        public const string ScheduleValidFrom = "ScheduleValidFrom";
+        public const string ScheduleValidTo = "ScheduleValidTo";
     }
 }
 
