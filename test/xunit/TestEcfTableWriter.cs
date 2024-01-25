@@ -1,26 +1,58 @@
-#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF 
+ *    ENBREA.ECF 
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
  */
 #endregion
 
-using Enbrea.Csv;
-using Enbrea.Ecf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Ecf.Enbrea.XUnit
+namespace Enbrea.Ecf.XUnit
 {
     public class TestEcfTableWriter
     {
+        [Fact]
+        public async Task TestDates()
+        {
+            var csvData =
+                "A;B" + Environment.NewLine +
+                "2022-08-08;2022-08-08T12:00:00" + Environment.NewLine +
+                "2022-08-08;2022-08-08T12:00:00";
+
+            var sb = new StringBuilder();
+
+            using var csvStream = new StringWriter(sb);
+
+            var ecfTableWriter = new EcfTableWriter(csvStream);
+
+            await ecfTableWriter.WriteHeadersAsync("A", "B");
+
+            Assert.Equal(2, ecfTableWriter.Headers.Count);
+
+            ecfTableWriter.SetValue("A", new DateOnly(2022, 8, 8));
+            ecfTableWriter.SetValue("B", new DateTime(2022, 8, 8, 12, 0, 0));
+
+            await ecfTableWriter.WriteAsync();
+
+            ecfTableWriter.SetValue<DateOnly?>("A", new DateOnly(2022, 8, 8));
+            ecfTableWriter.SetValue<DateTime?>("B", new DateTime(2022, 8, 8, 12, 0, 0));
+
+            await ecfTableWriter.WriteAsync();
+
+            var s = sb.ToString();
+
+            Assert.Equal(csvData, s);
+        }
+
         [Fact]
         public async Task TestJsonArray()
         {
@@ -31,9 +63,9 @@ namespace Ecf.Enbrea.XUnit
 
             var sb = new StringBuilder();
 
-            using var csvWriter = new CsvWriter(sb);
+            using var csvStream = new StringWriter(sb);
 
-            var ecfTableWriter = new EcfTableWriter(csvWriter);
+            var ecfTableWriter = new EcfTableWriter(csvStream);
 
             await ecfTableWriter.WriteHeadersAsync("A", "B", "C");
 
@@ -55,39 +87,6 @@ namespace Ecf.Enbrea.XUnit
         }
 
         [Fact]
-        public async Task TestLessonGapResolutions()
-        {
-            var csvData =
-                "A;B" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\"}]\"" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
-
-            var sb = new StringBuilder();
-
-            using var csvWriter = new CsvWriter(sb);
-
-            var ecfTableWriter = new EcfTableWriter(csvWriter);
-
-            await ecfTableWriter.WriteHeadersAsync("A", "B");
-
-            Assert.Equal(2, ecfTableWriter.Headers.Count);
-
-            ecfTableWriter.SetValue("A", "Text");
-            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapCancellation() { Behaviour = EcfLessonGapCancellationBehaviour.None } });
-
-            await ecfTableWriter.WriteAsync();
-
-            ecfTableWriter.SetValue("A", "Text");
-            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapSubstitution() { SubstituteLessonId = "6cade88a-ff84-48f9-8652-d8b7e8837034" } });
-
-            await ecfTableWriter.WriteAsync();
-
-            var s = sb.ToString();
-
-            Assert.Equal(csvData, s);
-        }
-
-        [Fact]
         public async Task TestLessonGapReasons()
         {
             var csvData =
@@ -97,9 +96,9 @@ namespace Ecf.Enbrea.XUnit
 
             var sb = new StringBuilder();
 
-            using var csvWriter = new CsvWriter(sb);
+            using var csvStream = new StringWriter(sb);
 
-            var ecfTableWriter = new EcfTableWriter(csvWriter);
+            var ecfTableWriter = new EcfTableWriter(csvStream);
 
             await ecfTableWriter.WriteHeadersAsync("A", "B");
 
@@ -121,18 +120,50 @@ namespace Ecf.Enbrea.XUnit
         }
 
         [Fact]
+        public async Task TestLessonGapResolutions()
+        {
+            var csvData =
+                "A;B" + Environment.NewLine +
+                "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\"}]\"" + Environment.NewLine +
+                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
+
+            var sb = new StringBuilder();
+
+            using var csvStream = new StringWriter(sb);
+
+            var ecfTableWriter = new EcfTableWriter(csvStream);
+
+            await ecfTableWriter.WriteHeadersAsync("A", "B");
+
+            Assert.Equal(2, ecfTableWriter.Headers.Count);
+
+            ecfTableWriter.SetValue("A", "Text");
+            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapCancellation() { Behaviour = EcfLessonGapCancellationBehaviour.None } });
+
+            await ecfTableWriter.WriteAsync();
+
+            ecfTableWriter.SetValue("A", "Text");
+            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapSubstitution() { SubstituteLessonId = "6cade88a-ff84-48f9-8652-d8b7e8837034" } });
+
+            await ecfTableWriter.WriteAsync();
+
+            var s = sb.ToString();
+
+            Assert.Equal(csvData, s);
+        }
+        [Fact]
         public async Task TestTemporalExpressions()
         {
             var csvData =
                 "A;B" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"OneTime\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"2020-08-17T07:45:00+02:00\"\",\"\"EndTimepoint\"\":\"\"2020-08-17T09:15:00+02:00\"\"}]\"" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Weekly\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"1899-12-30T13:45:00+01:00\"\",\"\"EndTimepoint\"\":\"\"1899-12-30T15:15:00+01:00\"\",\"\"DaysOfWeek\"\":\"\"Friday\"\",\"\"WeeksInterval\"\":1,\"\"ValidFrom\"\":\"\"2020-08-17T00:00:00+01:00\"\",\"\"ValidTo\"\":\"\"2021-01-31T00:00:00+01:00\"\"}]\"";
+                "Text;\"[{\"\"_type\"\":\"\"Weekly\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"1899-12-30T13:45:00+01:00\"\",\"\"EndTimepoint\"\":\"\"1899-12-30T15:15:00+01:00\"\",\"\"ValidFrom\"\":\"\"2020-08-17T00:00:00+01:00\"\",\"\"ValidTo\"\":\"\"2021-01-31T00:00:00+01:00\"\"}]\"";
 
             var sb = new StringBuilder();
 
-            using var csvWriter = new CsvWriter(sb);
+            using var csvStream = new StringWriter(sb);
 
-            var ecfTableWriter = new EcfTableWriter(csvWriter);
+            var ecfTableWriter = new EcfTableWriter(csvStream);
 
             await ecfTableWriter.WriteHeadersAsync("A", "B");
 
@@ -152,8 +183,6 @@ namespace Ecf.Enbrea.XUnit
                 {
                     StartTimepoint = new DateTimeOffset(1899, 12, 30, 13, 45, 0, new TimeSpan(1, 0, 0)),
                     EndTimepoint = new DateTimeOffset(1899, 12, 30, 15, 15, 0, new TimeSpan(1, 0, 0)),
-                    DaysOfWeek = EcfDayOfWeekSet.Friday,
-                    WeeksInterval = 1,
                     ValidFrom = new DateTimeOffset(2020, 8, 17, 0, 0, 0, new TimeSpan(1, 0, 0)),
                     ValidTo = new DateTimeOffset(2021, 1, 31, 0, 0, 0, new TimeSpan(1, 0, 0)),
                 }});

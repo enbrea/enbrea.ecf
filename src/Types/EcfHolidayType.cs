@@ -11,13 +11,8 @@
 
 namespace Enbrea.Ecf
 {
-    /// <summary>
-    /// Represents a one time period
-    /// </summary>
-    /// <remarks>
-    /// Example: 5/10/2015 from 8:00 to 10:00 
-    /// </remarks>
-    public class EcfOneTimeExpression : EcfTimePeriodExpression
+    public enum EcfHolidayType
     {
-    }
+        Public = 0, School = 1, Custom = 2
+    };
 }

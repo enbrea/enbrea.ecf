@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF
+ *    ENBREA.ECF
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -15,13 +15,9 @@ namespace Enbrea.Ecf
     /// Represents a weekly recurrence
     /// </summary>
     /// <remarks>
-    /// Example: Starting from 5/10/2015: Every week on Monday and Tuesday from 8:00 to 10:00 
+    /// Example: Starting from 5/10/2015: Every week on Tuesday from 8:00 to 10:00 
     /// </remarks>
-    public class EcfWeeklyTimePeriodExpression : EcfDaysOfWeekBasedExpression
+    public class EcfWeeklyTimePeriodExpression : EcfRecurringTimePeriodExpression
     {
-        /// <summary>
-        /// Week interval (e.g. every second week)
-        /// </summary>
-        public uint WeeksInterval { get; set; }
     }
 }

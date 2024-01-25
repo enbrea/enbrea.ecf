@@ -9,15 +9,14 @@
  */
 #endregion
 
+using System;
+
 namespace Enbrea.Ecf
 {
-    /// <summary>
-    /// Represents a one time period
-    /// </summary>
-    /// <remarks>
-    /// Example: 5/10/2015 from 8:00 to 10:00 
-    /// </remarks>
-    public class EcfOneTimeExpression : EcfTimePeriodExpression
+    [Flags]
+    public enum EcfStudentStatus
     {
-    }
+        Applicant = 1 << 1,
+        Enrolled = 1 << 2
+    };
 }

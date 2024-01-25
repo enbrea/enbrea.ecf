@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF
+ *    ENBREA.ECF
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -11,6 +11,7 @@
 
 using Enbrea.Csv;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Enbrea.Ecf
 {
@@ -19,39 +20,39 @@ namespace Enbrea.Ecf
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableReader"/> class.
         /// </summary>
-        /// <param name="csvReader">The <see cref="CsvReader"/> as source</param>
-        public EcfTableReader(CsvReader csvReader)
-            : base(csvReader, new EcfConverterResolver())
+        /// <param name="textReader">The <see cref="TextReader"/> as source</param>
+        public EcfTableReader(TextReader textReader)
+            : base(textReader, new EcfConfiguration(), new EcfConverterResolver())
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableReader"/> class.
         /// </summary>
-        /// <param name="csvReader">The <see cref="CsvReader"/> as source</param>
+        /// <param name="textReader">The <see cref="TextReader"/> as source</param>
         /// <param name="csvHeaders">List of csv headers</param>
-        public EcfTableReader(CsvReader csvReader, CsvHeaders csvHeaders)
-            : base(csvReader, new EcfConverterResolver(), csvHeaders)
+        public EcfTableReader(TextReader textReader, CsvHeaders csvHeaders)
+            : base(textReader, new EcfConfiguration(), new EcfConverterResolver(), csvHeaders)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableReader"/> class.
         /// </summary>
-        /// <param name="csvReader">The <see cref="CsvReader"/> as source</param>
+        /// <param name="csvReader">The <see cref="TextReader"/> as source</param>
         /// <param name="csvHeaders">List of csv headers</param>
-        public EcfTableReader(CsvReader csvReader, params string[] csvHeaders)
-            : this(csvReader, new CsvHeaders(csvHeaders))
+        public EcfTableReader(TextReader textReader, params string[] csvHeaders)
+            : this(textReader, new CsvHeaders(csvHeaders))
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableReader"/> class.
         /// </summary>
-        /// <param name="csvReader">The <see cref="CsvReader"/> as source</param>
+        /// <param name="textReader">The <see cref="TextReader"/> as source</param>
         /// <param name="csvHeaders">List of csv headers</param>
-        public EcfTableReader(CsvReader csvReader, IList<string> csvHeaders)
-            : this(csvReader, new CsvHeaders(csvHeaders))
+        public EcfTableReader(TextReader textReader, IList<string> csvHeaders)
+            : this(textReader, new CsvHeaders(csvHeaders))
         {
         }
     }

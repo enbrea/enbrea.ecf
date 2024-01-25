@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF
+ *    ENBREA.ECF
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -11,6 +11,7 @@
 
 using Enbrea.Csv;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Enbrea.Ecf
 {
@@ -19,39 +20,39 @@ namespace Enbrea.Ecf
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableWriter"/> class.
         /// </summary>
-        /// <param name="csvWriter">The <see cref="CsvWriter"/> as source</param>
-        public EcfTableWriter(CsvWriter csvWriter)
-            : base(csvWriter, new EcfConverterResolver())
+        /// <param name="textWriter">The <see cref="TextWriter"/> as source</param>
+        public EcfTableWriter(TextWriter textWriter)
+            : base(textWriter, new EcfConfiguration(), new EcfConverterResolver())
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableWriter"/> class.
         /// </summary>
-        /// <param name="csvWriter">The <see cref="CsvWriter"/> as source</param>
+        /// <param name="textWriter">The <see cref="TextWriter"/> as source</param>
         /// <param name="csvHeaders">List of csv headers</param>
-        public EcfTableWriter(CsvWriter csvWriter, CsvHeaders csvHeaders)
-            : base(csvWriter, new EcfConverterResolver(), csvHeaders)
+        public EcfTableWriter(TextWriter textWriter, CsvHeaders csvHeaders)
+            : base(textWriter, new EcfConfiguration(), new EcfConverterResolver(), csvHeaders)
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableWriter"/> class.
         /// </summary>
-        /// <param name="csvWriter">The <see cref="CsvWriter"/> as source</param>
+        /// <param name="textWriter">The <see cref="TextWriter"/> as source</param>
         /// <param name="csvHeaders">List of csv headers</param>
-        public EcfTableWriter(CsvWriter csvWriter, params string[] csvHeaders)
-            : this(csvWriter, new CsvHeaders(csvHeaders))
+        public EcfTableWriter(TextWriter textWriter, params string[] csvHeaders)
+            : this(textWriter, new CsvHeaders(csvHeaders))
         {
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="EcfTableWriter"/> class.
         /// </summary>
-        /// <param name="csvWriter">The <see cref="CsvWriter"/> as source</param>
+        /// <param name="csvWriter">The <see cref="TextWriter"/> as source</param>
         /// <param name="csvHeaders">List of csv headers</param>
-        public EcfTableWriter(CsvWriter csvWriter, IList<string> csvHeaders)
-            : this(csvWriter, new CsvHeaders(csvHeaders))
+        public EcfTableWriter(TextWriter textWriter, IList<string> csvHeaders)
+            : this(textWriter, new CsvHeaders(csvHeaders))
         {
         }
 

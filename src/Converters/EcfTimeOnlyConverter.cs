@@ -16,19 +16,18 @@ using System.Globalization;
 namespace Enbrea.Ecf
 {
     /// <summary>
-    /// Implementation of a <see cref="DateTime"> converter to or from ECF
+    /// Implementation of a <see cref="TimeOnly"/> converter to or from Ecf
     /// </summary>
-    public class EcfDateTimeConverter : CsvDateTimeConverter
+    public class EcfTimeOnlyConverter : CsvTimeOnlyConverter
     {
         private static readonly string[] _formats =
         {
-            "yyyy-MM-dd'T'HH:mm:ss",
-            "yyyy-MM-dd'T'HH:mm",
-            "yyyy-MM-dd",
+            "HH:mm:ss",
+            "HH:mm"
         };
 
-        public EcfDateTimeConverter() : 
-            base(CultureInfo.InvariantCulture, _formats)
+        public EcfTimeOnlyConverter()
+            : base(CultureInfo.InvariantCulture, _formats)
         {
         }
     }

@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF 
+ *    ENBREA.ECF 
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -16,7 +16,7 @@ using System.Globalization;
 namespace Enbrea.Ecf
 {
     /// <summary>
-    /// Implementation of a <see cref="Color"> converter to or from CSV
+    /// Implementation of a <see cref="Color"> converter to or from ECF
     /// </summary>
     public class EcfColorConverter : CsvDefaultFormattableConverter
     {

@@ -1,6 +1,6 @@
 ﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA.ECF 
+ *    ENBREA.ECF
  *    
  *    Copyright (c) STÜBER SYSTEMS GmbH
  *
@@ -16,18 +16,16 @@ using System.Globalization;
 namespace Enbrea.Ecf
 {
     /// <summary>
-    /// Implementation of a <see cref="DateTime"> converter to or from ECF
+    /// Implementation of a <see cref="DateOnly"/> converter to or from CSV
     /// </summary>
-    public class EcfDateTimeConverter : CsvDateTimeConverter
+    public class EcfDateOnlyConverter : CsvDateOnlyConverter
     {
         private static readonly string[] _formats =
         {
-            "yyyy-MM-dd'T'HH:mm:ss",
-            "yyyy-MM-dd'T'HH:mm",
             "yyyy-MM-dd",
         };
 
-        public EcfDateTimeConverter() : 
+        public EcfDateOnlyConverter() :
             base(CultureInfo.InvariantCulture, _formats)
         {
         }

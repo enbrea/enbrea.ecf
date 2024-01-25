@@ -14,12 +14,12 @@ using Enbrea.Csv;
 namespace Enbrea.Ecf
 {
     /// <summary>
-    /// Implementation of a <see cref="EcfGender"></see> converter to or from ECF
+    /// Implementation of a <see cref="EcfStudentStatus"></see> converter to or from ECF
     /// </summary>
-    public class EcfGenderConverter : CsvDefaultEnumConverter
+    public class EcfStudentStatusConverter : CsvDefaultEnumConverter
     {
-        public EcfGenderConverter() : 
-            base(typeof(EcfGender), null, true)
+        public EcfStudentStatusConverter() : 
+            base(typeof(EcfStudentStatus), null, true)
         {
         }
     }

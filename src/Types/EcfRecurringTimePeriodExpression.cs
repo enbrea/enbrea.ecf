@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF
+ *    ENBREA.ECF
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -17,8 +17,7 @@ namespace Enbrea.Ecf
     /// An abstract recurring time period expression 
     /// </summary>
     /// <remarks>
-    /// A RecurringTimePeriodExpression is the base class for <see cref="EcfDailyTimePeriodExpression"/>, <see cref="EcfMonthlyTimePeriodExpression"/> 
-    /// and <see cref="EcfDaysOfWeekBasedExpression"/>.
+    /// A RecurringTimePeriodExpression is the base class for <see cref="EcfWeeklyTimePeriodExpression"/>.
     /// </remarks>
     public abstract class EcfRecurringTimePeriodExpression : EcfTimePeriodExpression
     {

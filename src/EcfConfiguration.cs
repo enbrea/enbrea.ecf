@@ -13,14 +13,18 @@ using Enbrea.Csv;
 
 namespace Enbrea.Ecf
 {
-    public class EcfDictionary : CsvDictionary
+    /// <summary>
+    /// Default CSV configuration for ECF files
+    /// </summary>
+    public class EcfConfiguration : CsvConfiguration
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="EcfDictionary"/> class.
+        /// Initializes a new instance of the <see cref="EcfConfiguration"/> class.
         /// </summary>
-        public EcfDictionary()
-            : base(new EcfConfiguration(), new EcfConverterResolver())
+        public EcfConfiguration()
+            : base()
         {
+            Separator = ';';
         }
     }
 }

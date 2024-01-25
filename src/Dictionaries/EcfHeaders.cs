@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF
+ *    ENBREA.ECF
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -18,12 +18,18 @@ namespace Enbrea.Ecf
     {
         public const string AchievementTypes = "AchievementTypes";
         public const string AddressLines = "AddressLines";
+        public const string AllDayCare = "AllDayCare";
         public const string AlternativeName = "AlternativeName";
         public const string AlternativeSubjectFocusId = "AlternativeSubjectFocusId";
+        public const string ApplicationId = "ApplicationId";
+        public const string AssessmentByStudentId = "AssessmentByStudentId";
+        public const string AssessmentByTeacherId = "AssessmentByTeacherId";
         public const string Birthdate = "Birthdate";
         public const string Birthname = "Birthname";
         public const string Block = "Block";
         public const string BlockNo = "BlockNo";
+        public const string Bonus = "Bonus";
+        public const string BonusDescription = "BonusDescription";
         public const string Capacity = "Capacity";
         public const string Code = "Code";
         public const string CodePart = "CodePart";
@@ -49,12 +55,14 @@ namespace Enbrea.Ecf
         public const string Description = "Description";
         public const string DialingCode = "DialingCode";
         public const string Duration = "Duration";
-        public const string EducationalContentId = "EducationalContentId";
-        public const string Email = "Email";
+        public const string EducationalContentId = "EducationalContentId";        
         public const string EmailAddress = "EmailAddress";
         public const string EndDate = "EndDate";
+        public const string EndSchoolClassYear = "EndSchoolClassYear";
         public const string EndTime = "EndTime";
         public const string EndTimepoint = "EndTimepoint";
+        public const string EnrollmentSupportIdList = "EnrollmentSupportIdList";
+        public const string EnrollmentTypeIdList = "EnrollmentTypeIdList";
         public const string EntryDate = "EntryDate";
         public const string ExchangeLessonId = "ExchangeLessonId";
         public const string ExitDate = "ExitDate";
@@ -65,30 +73,40 @@ namespace Enbrea.Ecf
         public const string FirstEntryDate = "FirstEntryDate";
         public const string FirstName = "FirstName";
         public const string FlagId = "FlagId";
+        public const string ForeignLanguageId = "ForeignLanguageId";
         public const string FormOfTeachingId = "FormOfTeachingId";
         public const string FromLevel = "FromLevel";
         public const string Gender = "Gender";
+        public const string Grade = "Grade";
         public const string Grade1AchievementTypeId = "Grade1AchievementTypeId";
         public const string Grade1ValueId = "Grade1ValueId";
         public const string Grade2AchievementTypeId = "Grade2AchievementTypeId";
         public const string Grade2ValueId = "Grade2ValueId";
-        public const string GradeSystemId = "GradeSystemId";        
+        public const string GradeSystemId = "GradeSystemId";
         public const string GradeValueId = "GradeValueId";
         public const string HealthInsuranceProvider = "HealthInsuranceProvider";
+        public const string HomeLandAddressLines = "HomeLandAddressLines";
+        public const string HomeLandLocality = "HomeLandLocality";
+        public const string HomeLandPostalCode = "HomeLandPostalCode";
         public const string HomePhoneNumber = "HomePhoneNumber";
         public const string Id = "Id";
         public const string InternalCode = "InternalCode";
         public const string ISOCode = "ISOCode";
         public const string Label = "Label";
         public const string LanguageId = "LanguageId";
+        public const string LanguageLevelId = "LanguageLevelId";
+        public const string LanguageStatusId = "LanguageStatusId";
         public const string LastName = "LastName";
         public const string LateRepatriate = "LateRepatriate";
         public const string LessonId = "LessonId";
+        public const string LevelId = "LevelId";
         public const string LevelOfQualificationId = "LevelOfQualificationId";
         public const string Locality = "Locality";
         public const string MaritalStatusId = "MaritalStatusId";
+        public const string MaxTargetSelections = "MaxTargetSelections";
         public const string MiddleName = "MiddleName";
         public const string MobileNumber = "MobileNumber";
+        public const string ModifiedBy = "ModifiedBy";
         public const string Name = "Name";
         public const string Name1 = "Name1";
         public const string Name2 = "Name2";
@@ -100,6 +118,7 @@ namespace Enbrea.Ecf
         public const string Nationality3Id = "Nationality3Id";
         public const string NativeLanguageId = "NativeLanguageId";
         public const string NickName = "NickName";
+        public const string NonLocalStudent = "NonLocalStudent";
         public const string NormalizedCode = "NormalizedCode";
         public const string Notes = "Notes";
         public const string OfficePhoneNumber = "OfficePhoneNumber";
@@ -110,6 +129,7 @@ namespace Enbrea.Ecf
         public const string PlaceOfBirth = "PlaceOfBirth";
         public const string PostalCode = "PostalCode";
         public const string QualityId = "QualityId";
+        public const string Rank = "Rank";
         public const string ReasonDifferentiationId = "ReasonDifferentiationId";
         public const string ReasonId = "ReasonId";
         public const string Reasons = "Reasons";
@@ -117,12 +137,15 @@ namespace Enbrea.Ecf
         public const string Regions = "ISOCode";
         public const string RegionType = "RegionType";
         public const string RelationshipType = "RelationshipType";
+        public const string RelationshipTypeId = "RelationshipTypeId";
         public const string Relevance = "Relevance";
         public const string ReligionId = "ReligionId";
+        public const string ReligionParticipationId = "ReligionParticipationId";
         public const string Resolutions = "Resolutions";
         public const string ResolutionStatus = "ResolutionStatus";
         public const string RoomId = "RoomId";
         public const string RoomIdList = "RoomIdList";
+        public const string RowStatus = "RowStatus";
         public const string Salutation = "Salutation";
         public const string ScheduledLessonId = "ScheduledLessonId";
         public const string SchoolCategoryId = "SchoolCategoryId";
@@ -139,10 +162,13 @@ namespace Enbrea.Ecf
         public const string SchoolTermId = "SchoolTermId";
         public const string SchoolTypeId = "SchoolTypeId";
         public const string ScopeOfWeek = "ScopeOfWeek";
+        public const string Score = "Score";
         public const string Section = "Section";
         public const string SequenceNo = "SequenceNo";
+        public const string Sorting = "Sorting";
         public const string StartDate = "StartDate";
         public const string StartOfWeek = "StartOfWeek";
+        public const string StartSchoolClassYear = "StartSchoolClassYear";
         public const string StartTime = "StartTime";
         public const string StartTimepoint = "StartTimepoint";
         public const string StatisticalCode = "StatisticalCode";
@@ -157,17 +183,26 @@ namespace Enbrea.Ecf
         public const string SubjectGroupId = "SubjectGroupId";
         public const string SubjectId = "SubjectId";
         public const string SubjectLevelId = "SubjectLevelId";
+        public const string SubjectParticipationReligionId = "SubjectParticipationReligionId";
         public const string SubjectTypeId = "SubjectTypeId";
+        public const string SupportId = "SupportId";
+        public const string TargetId = "TargetId";
         public const string Teacher1Id = "Teacher1Id";
         public const string Teacher2Id = "Teacher2Id";
         public const string TeacherId = "TeacherId";
         public const string TeacherIdList = "TeacherIdList";
         public const string TeacherNo = "TeacherNo";
         public const string TemporalExpressions = "TemporalExpressions";
+        public const string TextAttribute1 = "TextAttribute1";
+        public const string TextAttribute2 = "TextAttribute2";
+        public const string TextAttribute3 = "TextAttribute3";
+        public const string TextAttribute4 = "TextAttribute4";
         public const string TimeFrameId = "TimeFrameId";
+        public const string TimePoint = "TimePoint";
         public const string TimeSlots = "TimeSlots";
         public const string Title = "Title";
         public const string ToLevel = "ToLevel";
+        public const string TrackId = "TrackId";
         public const string TutorId = "TutorId";
         public const string ValidFrom = "ValidFrom";
         public const string ValidTo = "ValidTo";
@@ -175,6 +210,7 @@ namespace Enbrea.Ecf
         public const string ValueType = "ValueType";
         public const string Visibility = "Visibility";
         public const string VocationalFieldId = "VocationalFieldId";
+        public const string WeeklyUnit = "WeeklyUnit";
     }
 }
 

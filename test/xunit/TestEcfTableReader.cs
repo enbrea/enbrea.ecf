@@ -1,22 +1,21 @@
-#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF 
+ *    ENBREA.ECF 
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
  */
 #endregion
 
-using Enbrea.Csv;
-using Enbrea.Ecf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Ecf.Enbrea.XUnit
+namespace Enbrea.Ecf.XUnit
 {
     public class TestEcfTableReader
     {
@@ -27,9 +26,9 @@ namespace Ecf.Enbrea.XUnit
                 "A;B;C" + Environment.NewLine +
                 "2020-12-18;2020-12-18T12:21:00+01:00;2020-12-18T12:21:07.000+01:00";
 
-            using var csvReader = new CsvReader(csvData);
+            using var csvStream = new StringReader(csvData);
 
-            var ecfTableReader = new EcfTableReader(csvReader);
+            var ecfTableReader = new EcfTableReader(csvStream);
 
             Assert.NotNull(ecfTableReader);
 
@@ -49,9 +48,9 @@ namespace Ecf.Enbrea.XUnit
                 "A;B;C" + Environment.NewLine +
                 "2020-12-18;2020-12-18T12:21;2020-12-18T12:21:07";
 
-            using var csvReader = new CsvReader(csvData);
+            using var csvStream = new StringReader(csvData);
 
-            var ecfTableReader = new EcfTableReader(csvReader);
+            var ecfTableReader = new EcfTableReader(csvStream);
 
             Assert.NotNull(ecfTableReader);
 
@@ -71,9 +70,9 @@ namespace Ecf.Enbrea.XUnit
                 "A;B;C" + Environment.NewLine +
                 "2020-01-01;2020-12-18;2020-12-31";
 
-            using var csvReader = new CsvReader(csvData);
+            using var csvStream = new StringReader(csvData);
 
-            var ecfTableReader = new EcfTableReader(csvReader);
+            var ecfTableReader = new EcfTableReader(csvStream);
 
             Assert.NotNull(ecfTableReader);
 
@@ -81,9 +80,15 @@ namespace Ecf.Enbrea.XUnit
             Assert.Equal(3, ecfTableReader.Headers.Count);
 
             await ecfTableReader.ReadAsync();
+#if NET6_0_OR_GREATER
+            Assert.Equal(new DateOnly(2020, 01, 01), ecfTableReader.GetValue<DateOnly>("A"));
+            Assert.Equal(new DateOnly(2020, 12, 18), ecfTableReader.GetValue<DateOnly>("B"));
+            Assert.Equal(new DateOnly(2020, 12, 31), ecfTableReader.GetValue<DateOnly>("C"));
+#else
             Assert.Equal(new Date(2020, 01, 01), ecfTableReader.GetValue<Date>("A"));
             Assert.Equal(new Date(2020, 12, 18), ecfTableReader.GetValue<Date>("B"));
             Assert.Equal(new Date(2020, 12, 31), ecfTableReader.GetValue<Date>("C"));
+#endif
         }
 
         [Fact]
@@ -95,9 +100,9 @@ namespace Ecf.Enbrea.XUnit
                 "22;c2;\"[\"\"23\"\",\"\"24\"\",\"\"25\"\"]\"" + Environment.NewLine +
                 "33;c3;";
 
-            using var csvReader = new CsvReader(csvData);
+            using var csvStream = new StringReader(csvData);
 
-            var ecfTableReader = new EcfTableReader(csvReader);
+            var ecfTableReader = new EcfTableReader(csvStream);
 
             Assert.NotNull(ecfTableReader);
 
@@ -128,9 +133,9 @@ namespace Ecf.Enbrea.XUnit
                 "Text;\"[{\"\"_type\"\":\"\"Absence\"\",\"\"AbsenceId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"Exam\"\",\"\"ExamId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
 
-            using var csvReader = new CsvReader(csvData);
+            using var csvStream = new StringReader(csvData);
 
-            var ecfTableReader = new EcfTableReader(csvReader);
+            var ecfTableReader = new EcfTableReader(csvStream);
 
             Assert.NotNull(ecfTableReader);
 
@@ -156,9 +161,9 @@ namespace Ecf.Enbrea.XUnit
                 "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\"}]\"" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
 
-            using var csvReader = new CsvReader(csvData);
+            using var csvStream = new StringReader(csvData);
 
-            var ecfTableReader = new EcfTableReader(csvReader);
+            var ecfTableReader = new EcfTableReader(csvStream);
 
             Assert.NotNull(ecfTableReader);
 
@@ -184,9 +189,9 @@ namespace Ecf.Enbrea.XUnit
                 "Text;\"[{\"\"_type\"\":\"\"OneTime\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"2020-08-17T07:45:00+02:00\"\",\"\"EndTimepoint\"\":\"\"2020-08-17T09:15:00+02:00\"\"}]\"" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"Weekly\"\",\"\"Operation\"\":\"\"Include\"\",\"\"StartTimepoint\"\":\"\"1899-12-30T13:45:00+01:00\"\",\"\"EndTimepoint\"\":\"\"1899-12-30T15:15:00+01:00\"\",\"\"DaysOfWeek\"\":\"\"Friday\"\",\"\"WeeksInterval\"\":1,\"\"ValidFrom\"\":\"\"2020-08-17\"\",\"\"ValidTo\"\":\"\"2021-01-31\"\"}]\"";
 
-            using var csvReader = new CsvReader(csvData);
+            using var csvStream = new StringReader(csvData);
 
-            var ecfTableReader = new EcfTableReader(csvReader);
+            var ecfTableReader = new EcfTableReader(csvStream);
 
             Assert.NotNull(ecfTableReader);
 

@@ -1,8 +1,8 @@
-﻿#region ENBREA ECF - Copyright (C) 2021 STÜBER SYSTEMS GmbH
+﻿#region ENBREA.ECF - Copyright (c) STÜBER SYSTEMS GmbH
 /*    
- *    ENBREA ECF
+ *    ENBREA.ECF
  *    
- *    Copyright (C) 2021 STÜBER SYSTEMS GmbH
+ *    Copyright (c) STÜBER SYSTEMS GmbH
  *
  *    Licensed under the MIT License, Version 2.0. 
  * 
@@ -16,8 +16,8 @@ namespace Enbrea.Ecf
     /// </summary>
     public static class EcfKeys
     {
-        public const string ScheduleValidFrom = "ScheduleValidFrom";
-        public const string ScheduleValidTo = "ScheduleValidTo";
+        public const string ValidFrom = "ValidFrom";
+        public const string ValidTo = "ValidTo";
     }
 }
 
