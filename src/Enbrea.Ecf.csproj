@@ -31,8 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Enbrea.Csv" Version="0.10.0" />
-    <PackageReference Include="System.IO.Hashing" Version="8.0.0" />
+    <PackageReference Include="Enbrea.Csv" Version="0.10.2" />
   </ItemGroup>
 
 </Project>
