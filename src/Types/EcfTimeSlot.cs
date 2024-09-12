@@ -19,14 +19,19 @@ namespace Enbrea.Ecf
     public class EcfTimeSlot : IEquatable<EcfTimeSlot>
     {
         /// <summary>
-        /// Label (Beschriftung)
-        /// </summary>
-        public string Label { get; set; }
-
-        /// <summary>
         /// Color (Farbe)
         /// </summary>
         public string Color { get; set; }
+
+        /// <summary>
+        /// End time (Endzeit)
+        /// </summary>
+        public DateTimeOffset EndTime { get; set; }
+
+        /// <summary>
+        /// Label (Beschriftung)
+        /// </summary>
+        public string Label { get; set; }
 
         /// <summary>
         /// Start time (Startzeit)
@@ -34,9 +39,9 @@ namespace Enbrea.Ecf
         public DateTimeOffset StartTime { get; set; }
 
         /// <summary>
-        /// End time (Endzeit)
+        /// Number of sub slots (Anzahl der Untereinheiten)
         /// </summary>
-        public DateTimeOffset EndTime { get; set; }
+        public uint SubSlots { get; set; } = 1;
 
         /// <summary>
         /// Determines whether two <see cref="EcfTimeSlot"> instances are equal.

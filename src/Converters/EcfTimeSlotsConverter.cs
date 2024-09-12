@@ -66,6 +66,10 @@ namespace Enbrea.Ecf
                             {
                                 timeSlot.EndTime = DateTimeOffset.ParseExact(jsonProperty4.GetString(), _dateTimeOffsetFormats, CultureInfo.InvariantCulture, DateTimeStyles.None);
                             }
+                            if (jsonElement.TryGetProperty("SubSlots", out var jsonProperty5))
+                            {
+                                timeSlot.SubSlots = jsonProperty5.GetUInt32();
+                            }
 
                             timeSlots.Add(timeSlot);
                         }
@@ -95,6 +99,7 @@ namespace Enbrea.Ecf
                     jsonWriter.WriteString("Color", timeSlot.Color);
                     jsonWriter.WriteString("StartTime", timeSlot.StartTime.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
                     jsonWriter.WriteString("EndTime", timeSlot.EndTime.ToString(_dateTimeOffsetFormats[0], CultureInfo.InvariantCulture));
+                    jsonWriter.WriteNumber("SubSlots", timeSlot.SubSlots);
                     jsonWriter.WriteEndObject();
                 }
             }

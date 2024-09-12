@@ -6,7 +6,7 @@
     <Authors>STÜBER SYSTEMS GmbH</Authors>
     <Company>STÜBER SYSTEMS GmbH</Company>
     <Copyright>© 2024 STÜBER SYSTEMS GmbH</Copyright>
-    <Product>ENBREA.ECF</Product>
+    <Product>Enbrea ECF</Product>
     <Description>Helper classes for reading and writing ECF files</Description>
     <PackageLicenseUrl></PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
