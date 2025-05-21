@@ -5,7 +5,7 @@
 
 A .NET library for parsing and building ECF (Enbrea CSV Format) files. This library is implemented on top of the [Enbrea CSV library](https://github.com/enbrea/enbrea.csv):
 
-+ Supports .NET 6, .NET 7 and .NET 8
++ Supports .NET 8 and .NET 9
 
 ## Installation
 
