@@ -6,6 +6,8 @@ variables:
 - group: 'nuget-package-config'
 - group: 'github-config'
 
+stages:
+
 - stage: BuildAndTest  
   jobs:
   - job: 
