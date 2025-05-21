@@ -1,9 +1,11 @@
 [![NuGet Gallery](https://img.shields.io/badge/NuGet%20Gallery-enbrea.ecf-blue.svg)](https://www.nuget.org/packages/Enbrea.Ecf/)
 ![GitHub](https://img.shields.io/github/license/enbrea/enbrea.ecf)
 
-# ENBREA.ECF
+# Enbrea ECF
 
-A .NET library for parsing and building ECF (ENBREA CSV Format) files. This library is implemented on top of the [ENBREA CSV library](https://github.com/enbrea/enbrea.csv). 
+A .NET library for parsing and building ECF (Enbrea CSV Format) files. This library is implemented on top of the [Enbrea CSV library](https://github.com/enbrea/enbrea.csv):
+
++ Supports .NET 8 and .NET 9
 
 ## Installation
 
