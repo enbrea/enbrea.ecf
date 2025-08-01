@@ -124,7 +124,7 @@ namespace Enbrea.Ecf.XUnit
         {
             var csvData =
                 "A;B" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\"}]\"" + Environment.NewLine +
+                "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\",\"\"Message\"\":\"\"test-message\"\"}]\"" + Environment.NewLine +
                 "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
 
             var sb = new StringBuilder();
@@ -138,7 +138,7 @@ namespace Enbrea.Ecf.XUnit
             Assert.Equal(2, ecfTableWriter.Headers.Count);
 
             ecfTableWriter.SetValue("A", "Text");
-            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapCancellation() { Behaviour = EcfLessonGapCancellationBehaviour.None } });
+            ecfTableWriter.SetValue("B", new List<EcfGapResolution>() { new EcfLessonGapCancellation() { Behaviour = EcfLessonGapCancellationBehaviour.None, Message = "test-message" } });
 
             await ecfTableWriter.WriteAsync();
 

@@ -22,6 +22,16 @@ namespace Enbrea.Ecf
     public abstract class EcfGapResolution : IEquatable<EcfGapResolution>
     {
         /// <summary>
+        /// Additional message (Zusätzlicher Mitteilungstext)
+        /// </summary>
+        public string Message { get; set; }
+
+        /// <summary>
+        /// Notes (Bemerkung)
+        /// </summary>
+        public string Notes { get; set; }
+
+        /// <summary>
         /// Determines whether two <see cref="EcfGapResolution"> instances are equal.
         /// </summary>
         /// <param name="obj">The object to compare with the current object.</param>

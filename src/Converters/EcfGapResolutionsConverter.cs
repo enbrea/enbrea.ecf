@@ -44,17 +44,37 @@ namespace Enbrea.Ecf
                             {
                                 if (jsonProperty1.GetString() == "Cancellation")
                                 {
+                                    var gapCancellation = new EcfLessonGapCancellation();
                                     if (jsonElement.TryGetProperty("Behaviour", out var jsonProperty2))
                                     {
-                                        gapResolutions.Add(new EcfLessonGapCancellation() { Behaviour = (EcfLessonGapCancellationBehaviour)Enum.Parse(typeof(EcfLessonGapCancellationBehaviour), jsonProperty2.GetString(), true) });
+                                        gapCancellation.Behaviour = (EcfLessonGapCancellationBehaviour)Enum.Parse(typeof(EcfLessonGapCancellationBehaviour), jsonProperty2.GetString(), true);
                                     }
+                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty3))
+                                    {
+                                        gapCancellation.Message = jsonProperty3.GetString();
+                                    }
+                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty4))
+                                    {
+                                        gapCancellation.Notes = jsonProperty4.GetString();
+                                    }
+                                    gapResolutions.Add(gapCancellation);
                                 }
                                 else if (jsonProperty1.GetString() == "Substitution")
                                 {
+                                    var gapSubstitution = new EcfLessonGapSubstitution();
                                     if (jsonElement.TryGetProperty("SubstituteLessonId", out var jsonProperty2))
                                     {
-                                        gapResolutions.Add(new EcfLessonGapSubstitution() { SubstituteLessonId = jsonProperty2.GetString() });
+                                        gapSubstitution.SubstituteLessonId = jsonProperty2.GetString();
                                     }
+                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty3))
+                                    {
+                                        gapSubstitution.Message = jsonProperty3.GetString();
+                                    }
+                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty4))
+                                    {
+                                        gapSubstitution.Notes = jsonProperty4.GetString();
+                                    }
+                                    gapResolutions.Add(gapSubstitution);
                                 }
 
                             }
@@ -85,11 +105,15 @@ namespace Enbrea.Ecf
                     {
                         jsonWriter.WriteString("_type", "Cancellation");
                         jsonWriter.WriteString("Behaviour", lessonGapCancellation.Behaviour.ToString());
+                        if (lessonGapCancellation.Message != null) jsonWriter.WriteString("Message", lessonGapCancellation.Message);
+                        if (lessonGapCancellation.Notes != null) jsonWriter.WriteString("Notes", lessonGapCancellation.Notes);
                     }
                     else if (gapResolution is EcfLessonGapSubstitution lessonGapResolution)
                     {
                         jsonWriter.WriteString("_type", "Substitution");
                         jsonWriter.WriteString("SubstituteLessonId", lessonGapResolution.SubstituteLessonId.ToString());
+                        if (lessonGapResolution.Message != null) jsonWriter.WriteString("Message", lessonGapResolution.Message);
+                        if (lessonGapResolution.Notes != null) jsonWriter.WriteString("Notes", lessonGapResolution.Notes);
                     }
                     jsonWriter.WriteEndObject();
                 }
