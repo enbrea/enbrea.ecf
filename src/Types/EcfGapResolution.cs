@@ -22,6 +22,11 @@ namespace Enbrea.Ecf
     public abstract class EcfGapResolution : IEquatable<EcfGapResolution>
     {
         /// <summary>
+        /// Description (Beschreibung oder Information)
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
         /// Additional message (Zusätzlicher Mitteilungstext)
         /// </summary>
         public string Message { get; set; }

@@ -70,13 +70,17 @@ namespace Enbrea.Ecf
                                     {
                                         gapSubstitution.SubstituteLessonId = jsonProperty2.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty3))
+                                    else if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
                                     {
-                                        gapSubstitution.Message = jsonProperty3.GetString();
+                                        gapSubstitution.Description = jsonProperty3.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty4))
+                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
                                     {
-                                        gapSubstitution.Notes = jsonProperty4.GetString();
+                                        gapSubstitution.Message = jsonProperty4.GetString();
+                                    }
+                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
+                                    {
+                                        gapSubstitution.Notes = jsonProperty5.GetString();
                                     }
                                     gapResolutions.Add(gapSubstitution);
                                 }
@@ -113,12 +117,13 @@ namespace Enbrea.Ecf
                         if (lessonGapCancellation.Message != null) jsonWriter.WriteString("Message", lessonGapCancellation.Message);
                         if (lessonGapCancellation.Notes != null) jsonWriter.WriteString("Notes", lessonGapCancellation.Notes);
                     }
-                    else if (gapResolution is EcfLessonGapSubstitution lessonGapResolution)
+                    else if (gapResolution is EcfLessonGapSubstitution lessonGapSubstitution)
                     {
                         jsonWriter.WriteString("_type", "Substitution");
-                        jsonWriter.WriteString("SubstituteLessonId", lessonGapResolution.SubstituteLessonId.ToString());
-                        if (lessonGapResolution.Message != null) jsonWriter.WriteString("Message", lessonGapResolution.Message);
-                        if (lessonGapResolution.Notes != null) jsonWriter.WriteString("Notes", lessonGapResolution.Notes);
+                        jsonWriter.WriteString("SubstituteLessonId", lessonGapSubstitution.SubstituteLessonId.ToString());
+                        if (lessonGapSubstitution.Description != null) jsonWriter.WriteString("Description", lessonGapSubstitution.Description);
+                        if (lessonGapSubstitution.Message != null) jsonWriter.WriteString("Message", lessonGapSubstitution.Message);
+                        if (lessonGapSubstitution.Notes != null) jsonWriter.WriteString("Notes", lessonGapSubstitution.Notes);
                     }
                     jsonWriter.WriteEndObject();
                 }
