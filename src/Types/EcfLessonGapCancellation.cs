@@ -17,7 +17,9 @@ namespace Enbrea.Ecf
     public class EcfLessonGapCancellation : EcfLessonGapResolution
     {
         public EcfLessonGapCancellationBehaviour Behaviour { get; set; }
-
+        
+        public string Description { get; set; }
+        
         /// <summary>
         /// Determines whether two <see cref="EcfGapResolution"> instances are equal.
         /// </summary>

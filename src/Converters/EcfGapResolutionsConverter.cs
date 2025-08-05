@@ -49,13 +49,17 @@ namespace Enbrea.Ecf
                                     {
                                         gapCancellation.Behaviour = (EcfLessonGapCancellationBehaviour)Enum.Parse(typeof(EcfLessonGapCancellationBehaviour), jsonProperty2.GetString(), true);
                                     }
-                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty3))
+                                    else if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
                                     {
-                                        gapCancellation.Message = jsonProperty3.GetString();
+                                        gapCancellation.Description = jsonProperty3.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty4))
+                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
                                     {
-                                        gapCancellation.Notes = jsonProperty4.GetString();
+                                        gapCancellation.Message = jsonProperty4.GetString();
+                                    }
+                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
+                                    {
+                                        gapCancellation.Notes = jsonProperty5.GetString();
                                     }
                                     gapResolutions.Add(gapCancellation);
                                 }
@@ -105,6 +109,7 @@ namespace Enbrea.Ecf
                     {
                         jsonWriter.WriteString("_type", "Cancellation");
                         jsonWriter.WriteString("Behaviour", lessonGapCancellation.Behaviour.ToString());
+                        if (lessonGapCancellation.Description != null) jsonWriter.WriteString("Description", lessonGapCancellation.Description);
                         if (lessonGapCancellation.Message != null) jsonWriter.WriteString("Message", lessonGapCancellation.Message);
                         if (lessonGapCancellation.Notes != null) jsonWriter.WriteString("Notes", lessonGapCancellation.Notes);
                     }

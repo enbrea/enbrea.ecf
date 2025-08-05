@@ -158,8 +158,8 @@ namespace Enbrea.Ecf.XUnit
         {
             var csvData =
                 "A;B" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\"}]\"" + Environment.NewLine +
-                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\"}]\"";
+                "Text;\"[{\"\"_type\"\":\"\"Cancellation\"\",\"\"Behaviour\"\":\"\"None\"\",\"\"Description\"\":\"\"A description\"\",\"\"Message\"\":\"\"A message\"\"}]\"" + Environment.NewLine +
+                "Text;\"[{\"\"_type\"\":\"\"Substitution\"\",\"\"SubstituteLessonId\"\":\"\"6cade88a-ff84-48f9-8652-d8b7e8837034\"\",\"\"Message\"\":\"\"A message\"\"}]\"";
 
             using var csvStream = new StringReader(csvData);
 
@@ -173,12 +173,12 @@ namespace Enbrea.Ecf.XUnit
             await ecfTableReader.ReadAsync();
             Assert.Equal("Text", ecfTableReader.GetValue<string>("A"));
             Assert.Single(ecfTableReader.GetValue<List<EcfGapResolution>>("B"));
-            Assert.Equal(new EcfLessonGapCancellation() { Behaviour = EcfLessonGapCancellationBehaviour.None }, ecfTableReader.GetValue<List<EcfGapResolution>>("B")[0]);
+            Assert.Equal(new EcfLessonGapCancellation() { Behaviour = EcfLessonGapCancellationBehaviour.None, Description = "A description", Message = "A message" }, ecfTableReader.GetValue<List<EcfGapResolution>>("B")[0]);
 
             await ecfTableReader.ReadAsync();
             Assert.Equal("Text", ecfTableReader.GetValue<string>("A"));
             Assert.Single(ecfTableReader.GetValue<List<EcfGapResolution>>("B"));
-            Assert.Equal(new EcfLessonGapSubstitution() { SubstituteLessonId = "6cade88a-ff84-48f9-8652-d8b7e8837034" }, ecfTableReader.GetValue<List<EcfGapResolution>>("B")[0]);
+            Assert.Equal(new EcfLessonGapSubstitution() { SubstituteLessonId = "6cade88a-ff84-48f9-8652-d8b7e8837034", Message = "A message" }, ecfTableReader.GetValue<List<EcfGapResolution>>("B")[0]);
         }
 
         [Fact]
