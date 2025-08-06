@@ -80,15 +80,10 @@ namespace Enbrea.Ecf.XUnit
             Assert.Equal(3, ecfTableReader.Headers.Count);
 
             await ecfTableReader.ReadAsync();
-#if NET6_0_OR_GREATER
+
             Assert.Equal(new DateOnly(2020, 01, 01), ecfTableReader.GetValue<DateOnly>("A"));
             Assert.Equal(new DateOnly(2020, 12, 18), ecfTableReader.GetValue<DateOnly>("B"));
             Assert.Equal(new DateOnly(2020, 12, 31), ecfTableReader.GetValue<DateOnly>("C"));
-#else
-            Assert.Equal(new Date(2020, 01, 01), ecfTableReader.GetValue<Date>("A"));
-            Assert.Equal(new Date(2020, 12, 18), ecfTableReader.GetValue<Date>("B"));
-            Assert.Equal(new Date(2020, 12, 31), ecfTableReader.GetValue<Date>("C"));
-#endif
         }
 
         [Fact]

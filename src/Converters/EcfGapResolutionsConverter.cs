@@ -49,15 +49,15 @@ namespace Enbrea.Ecf
                                     {
                                         gapCancellation.Behaviour = (EcfLessonGapCancellationBehaviour)Enum.Parse(typeof(EcfLessonGapCancellationBehaviour), jsonProperty2.GetString(), true);
                                     }
-                                    else if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
+                                    if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
                                     {
                                         gapCancellation.Description = jsonProperty3.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
+                                    if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
                                     {
                                         gapCancellation.Message = jsonProperty4.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
+                                    if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
                                     {
                                         gapCancellation.Notes = jsonProperty5.GetString();
                                     }
@@ -70,15 +70,15 @@ namespace Enbrea.Ecf
                                     {
                                         gapSubstitution.SubstituteLessonId = jsonProperty2.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
+                                    if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
                                     {
                                         gapSubstitution.Description = jsonProperty3.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
+                                    if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
                                     {
                                         gapSubstitution.Message = jsonProperty4.GetString();
                                     }
-                                    else if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
+                                    if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
                                     {
                                         gapSubstitution.Notes = jsonProperty5.GetString();
                                     }
