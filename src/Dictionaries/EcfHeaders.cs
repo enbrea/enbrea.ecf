@@ -22,6 +22,7 @@ namespace Enbrea.Ecf
         public const string AlternativeName = "AlternativeName";
         public const string AlternativeSubjectFocusId = "AlternativeSubjectFocusId";
         public const string ApplicationId = "ApplicationId";
+        public const string AreaId = "AreaId";
         public const string AssessmentByStudentId = "AssessmentByStudentId";
         public const string AssessmentByTeacherId = "AssessmentByTeacherId";
         public const string Birthdate = "Birthdate";
@@ -64,6 +65,7 @@ namespace Enbrea.Ecf
         public const string EnrollmentSupportIdList = "EnrollmentSupportIdList";
         public const string EnrollmentTypeIdList = "EnrollmentTypeIdList";
         public const string EntryDate = "EntryDate";
+        public const string EventId = "EventId";
         public const string ExchangeLessonId = "ExchangeLessonId";
         public const string ExitDate = "ExitDate";
         public const string Factor = "Factor";
