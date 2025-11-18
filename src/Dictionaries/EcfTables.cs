@@ -99,9 +99,9 @@ namespace Enbrea.Ecf
         public const string SubjectLevels = "SubjectLevels";
         public const string Subjects = "Subjects";
         public const string SubjectTypes = "SubjectTypes";
-        public const string SubstituteGaps = "SubstituteGaps";
         public const string SubstituteLessons = "SubstituteLessons";
         public const string SubstituteSupervisions = "SubstituteSupervisions";
+        public const string SupervisionGaps = "SupervisionGaps";
         public const string TeacherAbsenceReasonDifferentiations = "TeacherAbsenceReasonDifferentiations";
         public const string TeacherAbsenceReasons = "TeacherAbsenceReasons";
         public const string TeacherAbsences = "TeacherAbsences";
