@@ -16,90 +16,45 @@ namespace Enbrea.Ecf
     /// </summary>
     public static class EcfTables
     {
-        // Education
         public const string AchievementTypes = "AchievementTypes";
-
         public const string Announcements = "Announcements";
-
-        // Applications
         public const string ApplicationAssessments = "ApplicationAssessments";
-
         public const string ApplicationEnrollmentSupports = "ApplicationEnrollmentSupports";
-
         public const string ApplicationEnrollmentSupportSelections = "ApplicationEnrollmentSupportSelections";
-
         public const string ApplicationEnrollmentTypes = "ApplicationEnrollmentTypes";
-
         public const string ApplicationLevels = "ApplicationLevels";
-
         public const string Applications = "Applications";
-
         public const string ApplicationTargets = "ApplicationTargets";
-
         public const string ApplicationTargetSelections = "ApplicationTargetSelections";
-
         public const string ApplicationTargetTracks = "ApplicationTargetTracks";
-
-        // International
         public const string Countries = "Countries";
-
-        // Catalogs
         public const string CourseCategories = "CourseCategories";
-
         public const string CourseFlags = "CourseFlags";
-
         public const string Courses = "Courses";
-
         public const string CourseTypes = "CourseTypes";
-
         public const string CustodianRelationshipTypes = "CustodianRelationshipTypes";
-
-        // Parties
         public const string Custodians = "Custodians";
-
         public const string Departments = "Departments";
-
         public const string EducationalAreas = "EducationalAreas";
-
         public const string EducationalContents = "EducationalContents";
-
         public const string EducationalMaterials = "EducationalMaterials";
-
         public const string EducationalPrograms = "EducationalPrograms";
-
         public const string EnrollmentTargets = "EnrollmentTargets";
-
         public const string Events = "Events";
-
         public const string EventTypes = "EventTypes";
-
         public const string ExamTypes = "ExamTypes";
-
         public const string ForeignLanguages = "ForeignLanguages";
-
         public const string FormsOfTeaching = "FormsOfTeaching";
-
         public const string GradeSystems = "GradeSystems";
-
         public const string GradeValues = "GradeValues";
-
         public const string HealthInsuranceProvider = "HealthInsuranceProvider";
-
         public const string Holidays = "Holidays";
-
         public const string LanguageFamilies = "LanguageFamilies";
-
         public const string Languages = "Languages";
-
         public const string LessonGaps = "LessonGaps";
-
         public const string LessonProfiles = "LessonProfiles";
-
         public const string LessonSubstitutionQualities = "LessonSubstitutionQualities";
-
         public const string LevelOfQualifications = "LevelOfQualifications";
-
-        // Manifest
         public const string Manifest = "_Manifest";
         public const string MaritalStatuses = "MaritalStatuses";
         public const string Nationalities = "Nationalities";
@@ -144,6 +99,7 @@ namespace Enbrea.Ecf
         public const string SubjectLevels = "SubjectLevels";
         public const string Subjects = "Subjects";
         public const string SubjectTypes = "SubjectTypes";
+        public const string SubstituteGaps = "SubstituteGaps";
         public const string SubstituteLessons = "SubstituteLessons";
         public const string SubstituteSupervisions = "SubstituteSupervisions";
         public const string TeacherAbsenceReasonDifferentiations = "TeacherAbsenceReasonDifferentiations";

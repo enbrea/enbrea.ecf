@@ -21,7 +21,7 @@ namespace Enbrea.Ecf
         /// <summary>
         /// Substitution (Vertretung)
         /// </summary>
-        public string SubstitutionId { get; set; }
+        public string SubstituteSupervisionId { get; set; }
 
         /// <summary>
         /// Determines whether two <see cref="EcfGapResolution"> instances are equal.
@@ -30,7 +30,7 @@ namespace Enbrea.Ecf
         /// <returns>True if the specified Object is equal to the current Object; otherwise, false.</returns>
         public override bool Equals(EcfGapResolution obj)
         {
-            return base.Equals(obj) && (SubstitutionId == ((EcfSupervisionGapSubstitution)obj).SubstitutionId);
+            return base.Equals(obj) && (SubstituteSupervisionId == ((EcfSupervisionGapSubstitution)obj).SubstituteSupervisionId);
         }
     }
 }
