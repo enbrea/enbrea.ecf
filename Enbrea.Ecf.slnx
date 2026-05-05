@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/Enbrea.Ecf.csproj" />
+  <Project Path="test/Xunit/Enbrea.Ecf.XUnit.csproj" />
+</Solution>

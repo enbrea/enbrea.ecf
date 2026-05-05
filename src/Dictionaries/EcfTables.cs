@@ -101,6 +101,7 @@ namespace Enbrea.Ecf
         public const string SubjectTypes = "SubjectTypes";
         public const string SubstituteLessons = "SubstituteLessons";
         public const string SubstituteSupervisions = "SubstituteSupervisions";
+        public const string SupervisionAreas = "SupervisionAreas";
         public const string SupervisionGaps = "SupervisionGaps";
         public const string TeacherAbsenceReasonDifferentiations = "TeacherAbsenceReasonDifferentiations";
         public const string TeacherAbsenceReasons = "TeacherAbsenceReasons";
