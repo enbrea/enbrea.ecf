@@ -47,8 +47,8 @@ namespace Enbrea.Ecf
                                     var gapCancellation = new EcfLessonGapCancellation();
                                     if (jsonElement.TryGetProperty("Behaviour", out var jsonProperty2))
                                     {
-                                        gapCancellation.Behaviour = (EcfLessonGapCancellationBehaviour)Enum.Parse(typeof(EcfLessonGapCancellationBehaviour), jsonProperty2.GetString(), true);
-                                    }
+                                        gapCancellation.Behaviour = Enum.Parse<EcfLessonGapCancellationBehaviour>(jsonProperty2.GetString(), true);
+                                            }
                                     if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
                                     {
                                         gapCancellation.Description = jsonProperty3.GetString();
@@ -69,6 +69,48 @@ namespace Enbrea.Ecf
                                     if (jsonElement.TryGetProperty("SubstituteLessonId", out var jsonProperty2))
                                     {
                                         gapSubstitution.SubstituteLessonId = jsonProperty2.GetString();
+                                    }
+                                    if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
+                                    {
+                                        gapSubstitution.Description = jsonProperty3.GetString();
+                                    }
+                                    if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
+                                    {
+                                        gapSubstitution.Message = jsonProperty4.GetString();
+                                    }
+                                    if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
+                                    {
+                                        gapSubstitution.Notes = jsonProperty5.GetString();
+                                    }
+                                    gapResolutions.Add(gapSubstitution);
+                                }
+                                else if (jsonProperty1.GetString() == "SupervisionCancellation")
+                                {
+                                    var gapCancellation = new EcfSupervisionGapCancellation();
+                                    if (jsonElement.TryGetProperty("Behaviour", out var jsonProperty2))
+                                    {
+                                        gapCancellation.Behaviour = Enum.Parse<EcfSupervisionGapCancellationBehaviour>(jsonProperty2.GetString(), true);
+                                    }
+                                    if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
+                                    {
+                                        gapCancellation.Description = jsonProperty3.GetString();
+                                    }
+                                    if (jsonElement.TryGetProperty("Message", out var jsonProperty4))
+                                    {
+                                        gapCancellation.Message = jsonProperty4.GetString();
+                                    }
+                                    if (jsonElement.TryGetProperty("Notes", out var jsonProperty5))
+                                    {
+                                        gapCancellation.Notes = jsonProperty5.GetString();
+                                    }
+                                    gapResolutions.Add(gapCancellation);
+                                }
+                                else if (jsonProperty1.GetString() == "SupervisionSubstitution")
+                                {
+                                    var gapSubstitution = new EcfSupervisionGapSubstitution();
+                                    if (jsonElement.TryGetProperty("SubstituteSupervisionId", out var jsonProperty2))
+                                    {
+                                        gapSubstitution.SubstituteSupervisionId = jsonProperty2.GetString();
                                     }
                                     if (jsonElement.TryGetProperty("Description", out var jsonProperty3))
                                     {

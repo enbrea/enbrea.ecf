@@ -26,11 +26,11 @@ namespace Enbrea.Ecf
     public class EcfTemporalExpressionsConverter : ICsvConverter
     {
         private readonly string[] _dateTimeOffsetFormats =
-        {
+        [
             "yyyy-MM-dd'T'HH:mm:ss.FFFK",
             "yyyy-MM-dd'T'HH:mm.FFFK",
             "yyyy-MM-dd"
-        };
+        ];
 
         public object FromString(string value)
         {
@@ -148,7 +148,7 @@ namespace Enbrea.Ecf
 
         internal static EcfTemporalExpressionOperation ParseOperation(string value)
         {
-            return (EcfTemporalExpressionOperation)Enum.Parse(typeof(EcfTemporalExpressionOperation), value, true);
+            return Enum.Parse<EcfTemporalExpressionOperation>(value, true);
         }
     }
 }

@@ -16,5 +16,16 @@ namespace Enbrea.Ecf
     /// </summary>
     public class EcfSupervisionGapCancellation : EcfSupervisionGapResolution
     {
+        public EcfSupervisionGapCancellationBehaviour Behaviour { get; set; }
+
+        /// <summary>
+        /// Determines whether two <see cref="EcfGapResolution"> instances are equal.
+        /// </summary>
+        /// <param name="obj">The object to compare with the current object.</param>
+        /// <returns>True if the specified Object is equal to the current Object; otherwise, false.</returns>
+        public override bool Equals(EcfGapResolution obj)
+        {
+            return base.Equals(obj) && (Behaviour == ((EcfSupervisionGapCancellation)obj).Behaviour);
+        }
     }
 }

@@ -26,11 +26,11 @@ namespace Enbrea.Ecf
     public class EcfTimeSlotsConverter : ICsvConverter
     {
         private readonly string[] _dateTimeOffsetFormats =
-        {
+        [
             "yyyy-MM-dd'T'HH:mm:ss.FFFK",
             "yyyy-MM-dd'T'HH:mm.FFFK",
             "yyyy-MM-dd"
-        };
+        ];
 
         public virtual object FromString(string value)
         {

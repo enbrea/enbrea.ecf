@@ -107,17 +107,17 @@ namespace Enbrea.Ecf.XUnit
             await ecfTableReader.ReadAsync();
             Assert.Equal("11", ecfTableReader.GetValue<string>("A"));
             Assert.Equal("c1", ecfTableReader.GetValue<string>("B"));
-            Assert.Equal(new List<string>() { "13", "14", "15" }, ecfTableReader.GetValue<List<string>>("C"));
+            Assert.Equal(["13", "14", "15"], ecfTableReader.GetValue<List<string>>("C"));
 
             await ecfTableReader.ReadAsync();
             Assert.Equal("22", ecfTableReader.GetValue<string>("A"));
             Assert.Equal("c2", ecfTableReader.GetValue<string>("B"));
-            Assert.Equal(new List<string>() { "23", "24", "25" }, ecfTableReader.GetValue<List<string>>("C"));
+            Assert.Equal(["23", "24", "25"], ecfTableReader.GetValue<List<string>>("C"));
 
             await ecfTableReader.ReadAsync();
             Assert.Equal("33", ecfTableReader.GetValue<string>("A"));
             Assert.Equal("c3", ecfTableReader.GetValue<string>("B"));
-            Assert.Equal(new List<string>(), ecfTableReader.GetValue<List<string>>("C"));
+            Assert.Equal([], ecfTableReader.GetValue<List<string>>("C"));
         }
 
         [Fact]

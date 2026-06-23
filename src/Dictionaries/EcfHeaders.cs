@@ -187,6 +187,7 @@ namespace Enbrea.Ecf
         public const string SubjectLevelId = "SubjectLevelId";
         public const string SubjectParticipationReligionId = "SubjectParticipationReligionId";
         public const string SubjectTypeId = "SubjectTypeId";
+        public const string SupervisionId = "SupervisionId";
         public const string SupportId = "SupportId";
         public const string TargetId = "TargetId";
         public const string Teacher1Id = "Teacher1Id";

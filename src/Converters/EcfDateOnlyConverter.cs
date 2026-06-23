@@ -21,9 +21,9 @@ namespace Enbrea.Ecf
     public class EcfDateOnlyConverter : CsvDateOnlyConverter
     {
         private static readonly string[] _formats =
-        {
+        [
             "yyyy-MM-dd",
-        };
+        ];
 
         public EcfDateOnlyConverter() :
             base(CultureInfo.InvariantCulture, _formats)
